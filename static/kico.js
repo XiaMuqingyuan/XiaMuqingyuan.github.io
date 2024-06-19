@@ -12,7 +12,7 @@
 
 Array.prototype.remove = function (value) {
     var index = this.indexOf(value);
-    if(index > -1) this.splice(index, 1);
+    if (index > -1) this.splice(index, 1);
 };
 
 (function (global, setting) {
@@ -25,7 +25,7 @@ Array.prototype.remove = function (value) {
         init: function (a, b) {
             a = KStyle.selectAll(a);
 
-            a.each = function (fn){
+            a.each = function (fn) {
                 return KStyle.each(a, fn);
             };
 
@@ -51,7 +51,7 @@ Array.prototype.remove = function (value) {
 
     // 批量处理
     KStyle.each = function (data, fn) {
-        for(var i = 0; i < data.length; i++){
+        for (var i = 0; i < data.length; i++) {
             fn(data[i], i, data);
         }
     };
@@ -60,37 +60,37 @@ Array.prototype.remove = function (value) {
     KStyle.create = function (tag, prop) {
         var obj = document.createElement(tag);
 
-        if(prop){
-            if(prop.id)    obj.id = prop.id;
-            if(prop.src)   obj.src = prop.src;
-            if(prop.href)  obj.href = prop.href;
-            if(prop.class) obj.className = prop.class;
-            if(prop.text)  obj.innerText = prop.text;
-            if(prop.html)  obj.innerHTML = prop.html;
+        if (prop) {
+            if (prop.id) obj.id = prop.id;
+            if (prop.src) obj.src = prop.src;
+            if (prop.href) obj.href = prop.href;
+            if (prop.class) obj.className = prop.class;
+            if (prop.text) obj.innerText = prop.text;
+            if (prop.html) obj.innerHTML = prop.html;
 
-            if(prop.child){
-                if(prop.child.constructor === Array){
+            if (prop.child) {
+                if (prop.child.constructor === Array) {
                     KStyle.each(prop.child, (i) => {
                         obj.appendChild(i);
                     });
                 }
-                else{
+                else {
                     obj.appendChild(prop.child);
                 }
             }
 
-            if(prop.attr){
-                if(prop.attr.constructor === Array){
+            if (prop.attr) {
+                if (prop.attr.constructor === Array) {
                     KStyle.each(prop.attr, (i) => {
                         obj.setAttribute(i.name, i.value);
                     });
                 }
-                else if(prop.attr.constructor === Object){
+                else if (prop.attr.constructor === Object) {
                     obj.setAttribute(prop.attr.name, prop.attr.value);
                 }
             }
 
-            if(prop.parent) prop.parent.appendChild(obj);
+            if (prop.parent) prop.parent.appendChild(obj);
         }
 
         return obj;
@@ -98,14 +98,14 @@ Array.prototype.remove = function (value) {
 
     // 选择对象
     KStyle.select = function (obj) {
-        switch(typeof obj){
+        switch (typeof obj) {
             case "object": return obj; break;
             case "string": return document.querySelector(obj); break;
         }
     };
 
     KStyle.selectAll = function (obj) {
-        switch(typeof obj){
+        switch (typeof obj) {
             case "object": return obj; break;
             case "string": return document.querySelectorAll(obj); break;
         }
@@ -113,7 +113,7 @@ Array.prototype.remove = function (value) {
 
     // 清空子元素
     KStyle.empty = function (obj) {
-        while(obj.firstChild){
+        while (obj.firstChild) {
             obj.removeChild(obj.firstChild);
         }
     }
@@ -125,22 +125,22 @@ Array.prototype.remove = function (value) {
     };
 
     KStyle.notice = function (content, attr) {
-        var item = KStyle.create("div", {class: "ks-notice", html: "<span class='content'>" + content + "</span>", parent: notice.wrap});
+        var item = KStyle.create("div", { class: "ks-notice", html: "<span class='content'>" + content + "</span>", parent: notice.wrap });
 
         notice.list.push(item);
 
-        if(!document.querySelector("body > notice")) document.body.appendChild(notice.wrap);
+        if (!document.querySelector("body > notice")) document.body.appendChild(notice.wrap);
 
-        if(attr && attr.time){
+        if (attr && attr.time) {
             setTimeout(notice_remove, attr.time);
         }
-        else{
-            var close = KStyle.create("span", {class: "close", parent: item});
+        else {
+            var close = KStyle.create("span", { class: "close", parent: item });
 
             close.onclick = notice_remove;
         }
 
-        if(attr && attr.color){
+        if (attr && attr.color) {
             item.classList.add(attr.color);
         }
 
@@ -149,13 +149,13 @@ Array.prototype.remove = function (value) {
             notice.list.remove(item);
 
             setTimeout(function () {
-                try{
+                try {
                     notice.wrap.removeChild(item);
                     item = null;
                 }
-                catch(err) {}
+                catch (err) { }
 
-                if(document.querySelector("body > notice") && notice.list.length === 0){
+                if (document.querySelector("body > notice") && notice.list.length === 0) {
                     document.body.removeChild(notice.wrap);
                 }
             }, 300);
@@ -165,22 +165,24 @@ Array.prototype.remove = function (value) {
     // 灯箱
     var image_box = {
         img: KStyle.create("img"),
-        prev: KStyle.create("div", {class: "ks-prev"}),
-        next: KStyle.create("div", {class: "ks-next"}),
-        ball: KStyle.create("div", {class: "ks-ball"})
+        prev: KStyle.create("div", { class: "ks-prev" }),
+        next: KStyle.create("div", { class: "ks-next" }),
+        ball: KStyle.create("div", { class: "ks-ball" })
     };
-    image_box.wrap = KStyle.create("div", {class: "ks-image", child: [
-        image_box.prev, image_box.img, image_box.next, image_box.ball
-    ]});
+    image_box.wrap = KStyle.create("div", {
+        class: "ks-image", child: [
+            image_box.prev, image_box.img, image_box.next, image_box.ball
+        ]
+    });
 
     image_box.wrap.onclick = function (e) {
         image_box.wrap.classList.add("remove");
         setTimeout(function () {
-            try{
+            try {
                 document.body.removeChild(image_box.wrap);
                 image_box.wrap.classList.remove("remove");
             }
-            catch (err){}
+            catch (err) { }
         }, 300);
     };
 
@@ -208,13 +210,13 @@ Array.prototype.remove = function (value) {
                 current === 0 ? image_box.prev.classList.add("ended") : image_box.prev.classList.remove("ended");
                 current === get_images.length - 1 ? image_box.next.classList.add("ended") : image_box.next.classList.remove("ended");
 
-                if(img.getAttribute("ks-original") !== null){
+                if (img.getAttribute("ks-original") !== null) {
                     image_box.img.src = img.getAttribute("ks-original");
                 }
-                else if(img.src){
+                else if (img.src) {
                     image_box.img.src = img.src;
                 }
-                else{
+                else {
                     console.error("This image has no valid tag!");
                 }
 
@@ -223,7 +225,7 @@ Array.prototype.remove = function (value) {
         };
 
         KStyle.each(get_images, function (item, id) {
-            if(item.src || item.getAttribute("ks-original")){
+            if (item.src || item.getAttribute("ks-original")) {
                 actions.ori(item, id);
             }
         });
@@ -231,13 +233,13 @@ Array.prototype.remove = function (value) {
         // 设置按钮
         image_box.prev.onclick = function (e) {
             e.stopPropagation();
-            if(current - 1 >= 0) current--;
+            if (current - 1 >= 0) current--;
 
             actions.set();
         };
         image_box.next.onclick = function (e) {
             e.stopPropagation();
-            if(current + 1 < get_images.length) current++;
+            if (current + 1 < get_images.length) current++;
 
             actions.set();
         };
@@ -252,14 +254,14 @@ Array.prototype.remove = function (value) {
 
         var action = {
             setFront: function (item) {
-                if(item.intersectionRatio > 0) {
+                if (item.intersectionRatio > 0) {
                     item.target.src = item.target.link;
                     item.target.setAttribute("ks-lazy", "finished");
                     obs.unobserve(item.target);
                 }
             },
             setBack: function (item) {
-                if(item.boundingClientRect.top <= window.innerHeight + 100) {
+                if (item.boundingClientRect.top <= window.innerHeight + 100) {
                     var img = new Image();
                     img.src = item.target.link;
 
@@ -274,7 +276,7 @@ Array.prototype.remove = function (value) {
         };
 
         // 是否支持 OBS
-        if(global.IntersectionObserver){
+        if (global.IntersectionObserver) {
             var obs = new IntersectionObserver(function (changes) {
                 if (bg) {
                     changes.forEach(function (t) {
@@ -291,15 +293,15 @@ Array.prototype.remove = function (value) {
             KStyle.each(elements, function (item) {
                 item.link = item.getAttribute("ks-thumb") || item.getAttribute("ks-original");
 
-                if(!item.getAttribute("ks-lazy")) obs.observe(item);
+                if (!item.getAttribute("ks-lazy")) obs.observe(item);
             })
         }
-        else{
+        else {
             function back() {
                 KStyle.each(list, function (item) {
                     var check = item.el.getBoundingClientRect().top <= window.innerHeight;
 
-                    if(check && !item.showed){
+                    if (check && !item.showed) {
                         action.setBack(item.el);
                         list.remove(item);
                     }
@@ -310,7 +312,7 @@ Array.prototype.remove = function (value) {
                 KStyle.each(list, function (item) {
                     var check = item.el.getBoundingClientRect().top <= window.innerHeight;
 
-                    if(check && !item.showed){
+                    if (check && !item.showed) {
                         action.setFront(item.el);
                         list.remove(item);
                     }
@@ -320,7 +322,7 @@ Array.prototype.remove = function (value) {
             KStyle.each(elements, function (item) {
                 item.link = item.getAttribute("ks-thumb") || item.getAttribute("ks-original");
 
-                if(!item.getAttribute("ks-lazy")) list.push({el: item, link: item.link});
+                if (!item.getAttribute("ks-lazy")) list.push({ el: item, link: item.link });
             });
 
             bg ? back() : front();
@@ -330,20 +332,20 @@ Array.prototype.remove = function (value) {
 
     // AJAX
     KStyle.ajax = function (prop) {
-        if(!prop.url) prop.url = document.location.href;
-        if(!prop.method) prop.method = "GET";
+        if (!prop.url) prop.url = document.location.href;
+        if (!prop.method) prop.method = "GET";
 
-        if(prop.method === "POST"){
+        if (prop.method === "POST") {
             var data = new FormData();
 
-            for(var d in prop.data){
+            for (var d in prop.data) {
                 data.append(d, prop.data[d]);
             }
         }
-        else if(prop.method === "GET"){
+        else if (prop.method === "GET") {
             var url = prop.url + "?";
 
-            for(var d in prop.data){
+            for (var d in prop.data) {
                 url += d + "=" + prop.data[d] + "&";
             }
 
@@ -352,10 +354,10 @@ Array.prototype.remove = function (value) {
 
         var request = new XMLHttpRequest();
         request.open(prop.method, prop.url);
-        if(prop.crossDomain){ request.setRequestHeader("X-Requested-With", "XMLHttpRequest"); }
+        if (prop.crossDomain) { request.setRequestHeader("X-Requested-With", "XMLHttpRequest"); }
 
-        if(prop.header){
-            for(var i in prop.header){
+        if (prop.header) {
+            for (var i in prop.header) {
                 request.setRequestHeader(prop.header[i][0], prop.header[i][1]);
             }
         }
@@ -363,19 +365,19 @@ Array.prototype.remove = function (value) {
         request.send(data);
 
         request.onreadystatechange = function () {
-            if(request.readyState === 4){
-                if(request.status === 200 || request.status === 304){
-                    if(prop.type){
-                        switch(prop.type){
+            if (request.readyState === 4) {
+                if (request.status === 200 || request.status === 304) {
+                    if (prop.type) {
+                        switch (prop.type) {
                             case "text": prop.success(request.responseText); break;
                             case "json": prop.success(JSON.parse(request.response)); break;
                         }
                     }
-                    else{
+                    else {
                         prop.success ? prop.success(request) : console.log(prop.method + " 请求发送成功");
                     }
                 }
-                else{
+                else {
                     prop.failed ? prop.failed(request) : console.log(prop.method + " 请求发送失败");
                 }
 
@@ -396,16 +398,16 @@ Array.prototype.remove = function (value) {
                 var c = window.location.pathname;
 
                 var t = e.target.href.match(/#[\s\S]+/);
-                if(t) t = ks.select(t[0]);
+                if (t) t = ks.select(t[0]);
 
-                if(c === l){
+                if (c === l) {
                     e.preventDefault();
 
                     var top = t ? (offset ? t.offsetTop - offset : t.offsetTop) : 0;
 
-                    "scrollBehavior" in document.documentElement.style ? global.scrollTo({top: top, left: 0, behavior: "smooth"}) : global.scrollTo(0, top);
+                    "scrollBehavior" in document.documentElement.style ? global.scrollTo({ top: top, left: 0, behavior: "smooth" }) : global.scrollTo(0, top);
                 }
-                else{
+                else {
                     console.log(c, l);
                 }
             }
@@ -414,5 +416,5 @@ Array.prototype.remove = function (value) {
 
     global.ks = KStyle;
 
-    console.log("%c Kico Style %c https://paugram.com ","color: #fff; margin: 1em 0; padding: 5px 0; background: #3498db;","margin: 1em 0; padding: 5px 0; background: #efefef;");
+    console.log("%c Kico Style %c https://paugram.com ", "color: #fff; margin: 1em 0; padding: 5px 0; background: #3498db;", "margin: 1em 0; padding: 5px 0; background: #efefef;");
 })(window);

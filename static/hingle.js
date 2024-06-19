@@ -174,7 +174,7 @@ var Paul_Hingle = function (config) {
   if (config.copyright) {
     document.oncopy = function () {
       ks.notice("复制内容请注明来源并保留版权信息！", {
-        color: "yellow",
+        color: "#40E0D0",
         overlay: true,
       });
     };
