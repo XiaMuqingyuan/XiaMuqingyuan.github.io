@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <meta charset="UTF-8" />
+  <title>Vue轮播图 - Frost</title>
+  <meta name="referrer" content="no-referrer" />
+  <link rel="shortcut icon" href="/static/img/icon.png">
+  <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
+
+  
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <meta
+    name="viewport"
+    content="width=device-width, maximum-scale=1, initial-scale=1"
+  />
+  <meta property="og:site_name" content="Frost" />
+  <meta property="og:title" content="Vue轮播图" />
+  
+  <style>
+    body:before {
+      content: "";
+      background-image: url(https://api.paugram.com/wallpaper?source=gh);
+    }
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    <header>
+  <div class="head-title">
+    <h4>Frost</h4>
+  </div>
+  <div class="head-action">
+    <div class="toggle-btn"></div>
+    <div class="light-btn"></div>
+    <div class="search-btn"></div>
+  </div>
+  <form class="head-search" method="post">
+    <input type="text" name="s" placeholder="搜索什么？" />
+  </form>
+  <nav class="head-menu">
+    <a href="/">首页</a>
+    <div class="has-child">
+      <a>分类</a>
+      <div class="sub-menu">
+        <a class="category-link" href="/categories/shell/">shell</a><a class="category-link" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+      </div>
+    </div>
+    
+    <a href="/hyly">念念碎</a>
+    
+    <a href="/xiangmu">项目</a>
+    
+    <a href="/about">关于我</a>
+    
+  </nav>
+</header>
+ <main>
+  <div class="wrap min">
+    <section class="post-title">
+      <h2>Vue轮播图</h2>
+      <div class="post-meta">
+        <time class="date">2024.06.23</time>
+        
+        <span class="category"
+          ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
+        >
+        
+      </div>
+    </section>
+    <article class="post-content">
+       <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>因为准备期末考试了，所以我们教前端的老师不小心”泄露“了一丢丢题库出来<br><img src="https://zglt.us.kg/file/3ca587fe887de283bc724.gif" alt="滑稽"></p>
+<p>在题目里我看到了有一个 vue 的轮播图</p>
+<p>这玩意我们没有学过，但是我们学 HTML5 的时候学过一个轮播图</p>
+<p>我就想能不能把 HTML 的轮播图套到 Vue 里面</p>
+<p>然后忙活了很久发现我居然不会。见笑了</p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>然后我就开始我的找代码教程</p>
+<p>搜索引擎所搜索到的要不就是陈年屎山代码</p>
+<p>要么就是 HTML 写的轮播图</p>
+<p>还有的还是本地引入 vue.js 的写法也类似 HTML</p>
+<blockquote>
+<p>PS：我们学的是 Vue 脚手架搭建不是引入 js 文件</p>
+</blockquote>
+<p>最后经过我不屑的 Ctrl+C 和 Ctrl+V，终于在一堆屎山中找出了可以一些可以使用的代码</p>
+<p><img src="https://zglt.us.kg/file/6c626efd51244e056034c.gif" alt="丁真"></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>经过我那一点点的 vue 和 html 的知识最终将这代码(一坨新屎山代码)</p>
+<p><img src="https://zglt.us.kg/file/87de1bc396e648565a132.gif" alt="滑稽"></p>
+<p>改成了可以使用的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;display: flex; justify-content: space-between&quot;&gt;</span><br><span class="line">      &lt;div style=&quot;width: 70%&quot;&gt;</span><br><span class="line">        &lt;div style=&quot;width: 100%; max-width: 800px; margin: 20px auto 0 auto&quot;&gt;</span><br><span class="line">          &lt;el-carousel</span><br><span class="line">            :interval=&quot;2300&quot;</span><br><span class="line">            arrow=&quot;always&quot;</span><br><span class="line">            indicator-position=&quot;none&quot;</span><br><span class="line">            trigger=&quot;hover&quot;</span><br><span class="line">          &gt;</span><br><span class="line">            &lt;el-carousel-item v-for=&quot;(item, index) in imageList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">              &lt;img</span><br><span class="line">                :src=&quot;item.image&quot;</span><br><span class="line">                alt=&quot;&quot;</span><br><span class="line">                style=&quot;width: 100%; max-height: 360px; object-fit: cover&quot;</span><br><span class="line">              /&gt;</span><br><span class="line">              &lt;div class=&quot;ziti&quot;&gt;</span><br><span class="line">                &lt;h3&gt;&#123;&#123; item.title &#125;&#125;&lt;/h3&gt;</span><br><span class="line">                &lt;p&gt;&#123;&#123; item.description &#125;&#125;&lt;/p&gt;</span><br><span class="line">              &lt;/div&gt;</span><br><span class="line">            &lt;/el-carousel-item&gt;</span><br><span class="line">          &lt;/el-carousel&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;app&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      imageList: [</span><br><span class="line">        &#123;</span><br><span class="line">          title: &quot;标题&quot;,</span><br><span class="line">          description: &quot;简介&quot;,</span><br><span class="line">          image: require(&quot;填图片路径&quot;),</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.ziti &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  bottom: 10px;</span><br><span class="line">  left: 10px;</span><br><span class="line">  color: rgb(223, 35, 123);</span><br><span class="line">  background-color: rgba(255, 255, 255, 0.8); /* 背景颜色加半透明 */</span><br><span class="line">  padding: 10px;</span><br><span class="line">  border-radius: 5px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>最终样式是这样子<br><img src="https://zglt.us.kg/file/48319b525ca39f6089a0b.png" alt="轮播图"></p>
+<p>左右两个箭头可以调整图片轮播，默认 2.3s 自动轮播一次</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>其实这个轮播图还是挺简单的，但是由于本人技术有限没能靠自己写出来</p>
+<p>最后还是靠 Ctrl+C 和 Ctrl+V 写出来的</p>
+<p>但是多了解一些 js 语法和 vue 的语法应该就可以完成了</p>
+
+    </article>
+    <section class="post-near">
+      <ul>
+        
+        <li>上一篇: 看完啦 (つд⊂)</li>
+         
+        <li>
+          下一篇:
+          <a href="/2024/06/20/2024-06-20-Hexo%E6%B7%BB%E5%8A%A0Live2D%E7%9C%8B%E6%9D%BF%E5%A8%98/">Hexo添加Live2D看板娘</a>
+        </li>
+        
+      </ul>
+    </section>
+
+    
+    <section class="post-tags">
+      <a class="-none-link" href="/tags/Vue/" rel="tag">Vue</a>
+    </section>
+    
+
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="XiaMuqingyuan/XiaMuqingyuan.github.io"
+      data-repo-id="R_kgDOMI6vyA"
+      data-category="General"
+      data-category-id="DIC_kwDOMI6vyM4CgJja"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    
+    <section class="post-author">
+      
+      <figure class="author-avatar">
+        <img src="https://files.cnblogs.com/files/blogs/808760/touxiang.gif?t=1700582933&download=true" alt="Frost" />
+      </figure>
+      
+      <div class="author-info">
+        <h4>Frost</h4>
+        <p>恨君不似江楼月，南北东西，南北东西，只有相随无别离。</p>
+      </div>
+    </section>
+    
+  </div>
+</main>
+ <footer>
+  <div class="buttons">
+    <a class="to-top" href="#"></a>
+  </div>
+  <div class="wrap min">
+    <section class="widget">
+      <div class="row">
+        <div class="col-m-4">
+          <h3 class="title-recent">最新文章：</h3>
+          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/06/23/2024-06-23-vue%E8%BD%AE%E6%92%AD%E5%9B%BE/">Vue轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/2024-06-20-Hexo%E6%B7%BB%E5%8A%A0Live2D%E7%9C%8B%E6%9D%BF%E5%A8%98/">Hexo添加Live2D看板娘</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/17/2024-06-17-Win11%E6%90%9C%E7%B4%A2%E6%A1%86%E6%81%A2%E5%A4%8D%E6%88%90%E6%94%BE%E5%A4%A7%E9%95%9C/">Windows11搜索框变大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/16/2024-06-16-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9B%9B%E7%A7%8D%E9%81%8D%E5%8E%86/">二叉树四种遍历方法（C语言）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/16/2024-06-16-%E8%A7%A3%E5%86%B3VUE%E6%89%93%E5%8C%85%E5%90%8E%E6%98%BE%E7%A4%BA%E4%B8%BA%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%9A%84%E6%96%B9%E6%B3%95/">解决vue打包后显示为空白页的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/11/2024-06-11-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E9%83%A8%E7%BD%B2alist/">移动云手机部署alist</a></li></ul>
+        </div>
+        <div class="col-m-4">
+          <h3 class="title-date">时光机：</h3>
+          <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li></ul>
+        </div>
+        <div class="col-m-4">
+          <h3 class="title-tags">标签云：</h3>
+          <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">C语言</a> <a href="/tags/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" style="font-size: 10px;">C语言指针</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/WIndows/" style="font-size: 10px;">WIndows</a> <a href="/tags/alist/" style="font-size: 10px;">alist</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" style="font-size: 10px;">外网访问</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 15px;">安卓</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 10px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 15px;">数据结构与算法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构算法</a> <a href="/tags/%E6%A0%BC%E6%9C%BA/" style="font-size: 10px;">格机</a> <a href="/tags/%E7%9C%8B%E6%9D%BF%E5%A8%98/" style="font-size: 10px;">看板娘</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA/" style="font-size: 10px;">移动云手机</a>
+        </div>
+      </div>
+    </section>
+    <section class="sub-footer">
+      <img
+        src="https://ip.ntrqq.net/images/rika.png?wd=JUU3JTk5JUJEJUU4JThDJUI2JUU2JUI4JTg1JUU2JUFDJUEyJUU2JTk3JUEwJUU1JTg4JUFCJUU0JUJBJThCJTJDJUU2JTg4JTkxJUU1JTlDJUE4JUU3JUFEJTg5JUU5JUEzJThFJUU0JUI5JTlGJUU3JUFEJTg5JUU0JUJEJUEw&r=u4rewl36a5"
+      />
+      <p>
+        © 2024
+        <a href="/">Frost</a>. All Rights Reserved.
+        By
+        <a
+          href="https://github.com/xiamuqingyuan/xiamuqingyuan.github.io"
+          target="_blank"
+          rel="nofollow"
+          >Frost</a
+        >.
+      </p>
+    </section>
+  </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+<script src="/static/1.js"></script>
+<script src="/static/2.js"></script>
+<script src="/static/3.js"></script>
+
+
+<script>
+  var hingle = new Paul_Hingle();
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
