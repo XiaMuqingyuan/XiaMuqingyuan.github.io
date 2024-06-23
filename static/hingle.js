@@ -207,7 +207,7 @@ ks.image(
 // 请保留版权说明
 if (window.console && window.console.log) {
   console.log(
-    "%c Hingle %c https://paugram.com ",
+    "%c Frost %c https://xxs.us.kg ",
     "color: #fff; margin: 1em 0; padding: 5px 0; background: #6f9fc7;",
     "margin: 1em 0; padding: 5px 0; background: #efefef;"
   );
