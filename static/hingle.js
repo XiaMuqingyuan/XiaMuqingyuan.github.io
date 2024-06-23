@@ -193,12 +193,6 @@ var Paul_Hingle = function (config) {
       ev.preventDefault();
 
       window.open("https://www.bing.com/search?q=" + input.value.trim());
-      // window.open(
-      //   "https://www.bing.com/search?q=site:" +
-      //     location.host +
-      //     " " +
-      //     input.value.trim()
-      // );
     };
   };
 
@@ -213,7 +207,7 @@ ks.image(
 // 请保留版权说明
 if (window.console && window.console.log) {
   console.log(
-    "%c Frost %c  ",
+    "%c Hingle %c https://paugram.com ",
     "color: #fff; margin: 1em 0; padding: 5px 0; background: #6f9fc7;",
     "margin: 1em 0; padding: 5px 0; background: #efefef;"
   );
