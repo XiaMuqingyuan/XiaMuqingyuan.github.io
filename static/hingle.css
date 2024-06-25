@@ -1252,13 +1252,3 @@ pre[class*="language-"].line-numbers {
   padding-right: 0.8em;
   text-align: right;
 }
-
-span {
-  background: linear-gradient(to right, #ec695c, #61c454) no-repeat right bottom;
-  background-size: 0px 2px;
-  transition: background-size 1300ms;
-}
-span:hover {
-  background-size: 100% 2px;
-  background-position-x: left;
-}
