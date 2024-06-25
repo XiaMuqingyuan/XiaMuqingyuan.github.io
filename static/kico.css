@@ -37,6 +37,17 @@ figure {
   padding: 0;
 }
 
+span {
+  background: linear-gradient(to right, #ec685cb3, #429faed0) no-repeat right
+    bottom;
+  background-size: 0px 2px;
+  transition: background-size 1300ms;
+}
+span:hover {
+  background-size: 100% 2px;
+  background-position-x: left;
+}
+
 *,
 *:before,
 *:after {

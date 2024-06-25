@@ -75,13 +75,13 @@
       </div>
     </section>
     <article class="post-content">
-       <p><span>注意：vue-element-admin 项目打包后显示为空白页的解决办法直接拖到文章最后。</span></p>
-<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p><span>VUE 项目用指令 npm run dev 运行后打开网址可以正常显示网页内容，但是用指令 npm run build 进行打包部署后，生成的 dist 文件夹中 index.html 文件在浏览器中打开为空白页。</span></p>
-<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p><span>在项目中打开【config】文件夹中的【index.js】文件，如下图所示，找到【build】里面 assetsPublicPath: ‘&#x2F;’ 这行代码，并将其改为 assetsPublicPath: ‘.&#x2F;’ （在斜杠前加点）。 </span><br><span>注意：一定要改【build】里面的代码，不要改成【dev】里面的。 </span></p>
-<p><img src="https://zglt.us.kg/file/d5e84ce3924366003ecaa.png" alt="pic_69770fae.png"><br><span>重新用指令 npm run build 进行打包部署即可，生成的 dist 文件夹中 index.html 文件在浏览器中打开后显示如下： </span></p>
+       <p>注意：vue-element-admin 项目打包后显示为空白页的解决办法直接拖到文章最后。</p>
+<h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>VUE 项目用指令 npm run dev 运行后打开网址可以正常显示网页内容，但是用指令 npm run build 进行打包部署后，生成的 dist 文件夹中 index.html 文件在浏览器中打开为空白页。</p>
+<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>在项目中打开【config】文件夹中的【index.js】文件，如下图所示，找到【build】里面 assetsPublicPath: ‘&#x2F;’ 这行代码，并将其改为 assetsPublicPath: ‘.&#x2F;’ （在斜杠前加点）。<br> 注意：一定要改【build】里面的代码，不要改成【dev】里面的。</p>
+<p><img src="https://zglt.us.kg/file/d5e84ce3924366003ecaa.png" alt="pic_69770fae.png"><br> 重新用指令 npm run build 进行打包部署即可，生成的 dist 文件夹中 index.html 文件在浏览器中打开后显示如下：</p>
 <p><img src="https://zglt.us.kg/file/7d70cfcb824570c75b95c.png" alt="pic_9b78fdf8.png"></p>
-<h3 id="vue-element-admin-运行并且打包部署后显示为空白页的解决办法："><a href="#vue-element-admin-运行并且打包部署后显示为空白页的解决办法：" class="headerlink" title="vue-element-admin 运行并且打包部署后显示为空白页的解决办法："></a>vue-element-admin 运行并且打包部署后显示为空白页的解决办法：</h3><p><span>正常 vue 项目是要修改 config 文件夹下的 index.js 可是 vue-element-admin 项目没有这个文件，那就找到并且打开 vue.config.js，将 publicPath: ‘&#x2F;’ 改成 publicPath: ‘.&#x2F;’ 。</span><br><span>再次执行，npm run build:prod 命令，重新打包。</span></p>
-<p><span>这时在本地打开静态文件 dist 里面的 index.html 页面点击登录按钮无法跳转，但是部署到服务器上是可以正常登录的。</span></p>
+<h3 id="vue-element-admin-运行并且打包部署后显示为空白页的解决办法："><a href="#vue-element-admin-运行并且打包部署后显示为空白页的解决办法：" class="headerlink" title="vue-element-admin 运行并且打包部署后显示为空白页的解决办法："></a>vue-element-admin 运行并且打包部署后显示为空白页的解决办法：</h3><p>正常 vue 项目是要修改 config 文件夹下的 index.js 可是 vue-element-admin 项目没有这个文件，那就找到并且打开 vue.config.js，将 publicPath: ‘&#x2F;’ 改成 publicPath: ‘.&#x2F;’ 。<br>再次执行，npm run build:prod 命令，重新打包。</p>
+<p>这时在本地打开静态文件 dist 里面的 index.html 页面点击登录按钮无法跳转，但是部署到服务器上是可以正常登录的。</p>
 <!--
 [vue-element-admin 运行并且打包部署教程][vue-element-admin]
 
