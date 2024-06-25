@@ -75,14 +75,18 @@
       </div>
     </section>
     <article class="post-content">
-       <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>上次我们搭建了 hexo 博客，今天来添加一个 Live2D 看板娘。在网上看了一些教程，不过 hexo 更新之后更简单，以前的一些教程有些过时了，所以想写一篇更新的教程。</p>
-<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><h5 id="Live2D"><a href="#Live2D" class="headerlink" title="Live2D"></a>Live2D</h5><p>Live2D 是一种应用于电子游戏的绘图渲染技术，由日本 Cybernoids 公司开发，通过一系列的连续图像和人物建模来生成一种类似二维图像的三维模型，换句话说就是 2D 的素材实现一定程度的 3D 效果，但只能是一定程度 3D，因为 Live 2D 人物无法大幅度转身。</p>
-<p>很多知名的动漫都是 Live2D 游戏改编的或者反过来的，例如：《我的妹妹不可能有那么可爱》、《我的朋友很少》、《樱花庄的宠物女孩》等。</p>
+       <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><span>
+今天来给博客添加一个 Live2D 看板娘。在网上看了一些教程，不过 hexo 更新之后更简单，以前的一些教程有些过时了，所以想写一篇更新的教程。
+</span>
+
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><h5 id="Live2D"><a href="#Live2D" class="headerlink" title="Live2D"></a>Live2D</h5><p><span>Live2D 是一种应用于电子游戏的绘图渲染技术，由日本 Cybernoids 公司开发，通过一系列的连续图像和人物建模来生成一种类似二维图像的三维模型，换句话说就是 2D 的素材实现一定程度的 3D 效果，但只能是一定程度 3D，因为 Live 2D 人物无法大幅度转身。</span></p>
+<p><span>很多知名的动漫都是 Live2D 游戏改编的或者反过来的，例如：《我的妹妹不可能有那么可爱》、《我的朋友很少》、《樱花庄的宠物女孩》等。</span></p>
 <p><img src="https://zglt.us.kg/file/8e23f9dfb3058d232f51a.png" alt="俺妹"></p>
-<p>《路人女主的养成方法》中安艺伦也一行人制作的游戏就是 Live2D 游戏，当然，这部轻小说本身也被做成了 Live2D 游戏。</p>
+<p><span>《路人女主的养成方法》中安艺伦也一行人制作的游戏就是 Live2D 游戏，当然，这部轻小说本身也被做成了 Live2D 游戏。</span></p>
 <p><img src="https://zglt.us.kg/file/e393f6b4f243bf3758301.png" alt="路人女主加滕惠"></p>
-<p>live2d 官方网站就是[live2d.com][]，里面提供了 live2d 开发和编辑软件（如 Live2D Cubism editor 和 Live2D Euclideditor），还有开发使用教程等，对相关制作感兴趣的可以看看。<br>更详细的介绍请看[二次元 live2d 看板娘中的 web 前端技术][live2d_web]</p>
-<h5 id="看板娘"><a href="#看板娘" class="headerlink" title="看板娘"></a>看板娘</h5><p>看板娘是一种职业和习惯称呼，也是 ACGN 次文化中的萌属性之一。简而言之就是小店的女服务生，也有“吸引顾客，招揽生意，提高人气”等作用类似品牌形象代言人的含义。<br><img src="https://zglt.us.kg/file/4a84e9cf0da0e83c7470c.png" alt="在这里插入图片描述"></p>
+<p><span>live2d 官方网站就是[live2d.com][]，里面提供了 live2d 开发和编辑软件（如 Live2D Cubism editor 和 Live2D Euclideditor），还有开发使用教程等，对相关制作感兴趣的可以看看。</span></p>
+<h5 id="看板娘"><a href="#看板娘" class="headerlink" title="看板娘"></a>看板娘</h5><p><span>看板娘是一种职业和习惯称呼，也是 ACGN 次文化中的萌属性之一。简而言之就是小店的女服务生，也有“吸引顾客，招揽生意，提高人气”等作用类似品牌形象代言人的含义。 </span></p>
+<p><img src="https://zglt.us.kg/file/4a84e9cf0da0e83c7470c.png" alt="在这里插入图片描述"></p>
 <h4 id="添加-Live2D-看板娘"><a href="#添加-Live2D-看板娘" class="headerlink" title="添加 Live2D 看板娘"></a>添加 Live2D 看板娘</h4><h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><ul>
 <li>检查博客主目录下的<code>package.json</code>是否有<code>&quot;hexo-helper-live2d&quot;: &quot;^3.1.0&quot;</code>,依赖：<br><img src="https://zglt.us.kg/file/eceee2ded42eb06c5f8af.png" alt="在这里插入图片描述"><br>有的话可以先卸载：<code>npm uninstall hexo-helper-live2d</code></li>
 </ul>
@@ -96,9 +100,11 @@
 <li><p>配置 Hexo 的主<code>_config.yml</code>或者使用的主题的<code>_config.yml</code><br>添加以下代码到配置文件中：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">## Live2D看板娘</span><br><span class="line">live2d:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  model:</span><br><span class="line">    #模板目录，在node_modules里</span><br><span class="line">    use: live2d-widget-model-shizuku</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: <span class="number">300</span></span><br><span class="line">    height: <span class="number">600</span></span><br><span class="line">  mobile:</span><br><span class="line">    # 在手机端显示</span><br><span class="line">    show: <span class="literal">false</span></span><br><span class="line">  rect:</span><br><span class="line">    opacity:<span class="number">0.7</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h5 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h5><p>使用<code>hexo g</code>生成文件，使用<code>hexo server</code>即可在本地查看效果：<br><img src="https://zglt.us.kg/file/877d2d6bc0b4a11e8d2f4.png" alt="在这里插入图片描述"><br>打开浏览器访问：<code>http://localhost:4000</code>即可看到效果：<br><img src="https://zglt.us.kg/file/dd371d8fa5ddd1fcd2310.png" alt="在这里插入图片描述"></p>
-<h5 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h5><p>在本地找到满意的效果后，使用<code>hexo d</code>将其发布到你的 hexo 服务器上，即可在外网查看了。</p>
-<h4 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h4><p>那么到这里，添加 Live2d 看板娘教程就结束了。<br>如果对你有帮助，请点个赞再走，谢谢。</p>
+<h5 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h5><p><span>使用<code>hexo g</code>生成文件，使用<code>hexo server</code>即可在本地查看效果： </span></p>
+<p><img src="https://zglt.us.kg/file/877d2d6bc0b4a11e8d2f4.png" alt="在这里插入图片描述"><br><span>打开浏览器访问：<code>http://localhost:4000</code>即可看到效果： </span></p>
+<p><img src="https://zglt.us.kg/file/dd371d8fa5ddd1fcd2310.png" alt="在这里插入图片描述"></p>
+<h5 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h5><p><span>在本地找到满意的效果后，使用<code>hexo d</code>将其发布到你的 hexo 服务器上，即可在外网查看了。</span></p>
+<h4 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h4><p><span>那么到这里，添加 Live2d 看板娘教程就结束了。 </span><br><span>如果对你有帮助，请点个赞再走，谢谢。</span></p>
 
     </article>
     <section class="post-near">
@@ -164,7 +170,7 @@
       <div class="row">
         <div class="col-m-4">
           <h3 class="title-recent">最新文章：</h3>
-          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/06/23/2024-06-23-vue%E8%BD%AE%E6%92%AD%E5%9B%BE/">Vue轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/2024-06-20-Hexo%E6%B7%BB%E5%8A%A0Live2D%E7%9C%8B%E6%9D%BF%E5%A8%98/">Hexo添加Live2D看板娘</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/17/2024-06-17-Win11%E6%90%9C%E7%B4%A2%E6%A1%86%E6%81%A2%E5%A4%8D%E6%88%90%E6%94%BE%E5%A4%A7%E9%95%9C/">Windows11搜索框变大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/16/2024-06-16-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9B%9B%E7%A7%8D%E9%81%8D%E5%8E%86/">二叉树四种遍历方法（C语言）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/16/2024-06-16-%E8%A7%A3%E5%86%B3VUE%E6%89%93%E5%8C%85%E5%90%8E%E6%98%BE%E7%A4%BA%E4%B8%BA%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%9A%84%E6%96%B9%E6%B3%95/">解决vue打包后显示为空白页的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/11/2024-06-11-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E9%83%A8%E7%BD%B2alist/">移动云手机部署alist</a></li></ul>
+          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/06/23/2024-06-23-vue%E8%BD%AE%E6%92%AD%E5%9B%BE/">Vue轮播图</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/20/2024-06-20-Hexo%E6%B7%BB%E5%8A%A0Live2D%E7%9C%8B%E6%9D%BF%E5%A8%98/">Hexo添加Live2D看板娘</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/17/2024-06-17-Win11%E6%90%9C%E7%B4%A2%E6%A1%86%E6%81%A2%E5%A4%8D%E6%88%90%E6%94%BE%E5%A4%A7%E9%95%9C/">Windows11搜索框变大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/16/2024-06-16-%E8%A7%A3%E5%86%B3VUE%E6%89%93%E5%8C%85%E5%90%8E%E6%98%BE%E7%A4%BA%E4%B8%BA%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%9A%84%E6%96%B9%E6%B3%95/">解决vue打包后显示为空白页的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/16/2024-06-16-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9B%9B%E7%A7%8D%E9%81%8D%E5%8E%86/">二叉树四种遍历方法（C语言）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/06/11/2024-06-11-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E9%83%A8%E7%BD%B2alist/">移动云手机部署alist</a></li></ul>
         </div>
         <div class="col-m-4">
           <h3 class="title-date">时光机：</h3>
@@ -172,7 +178,7 @@
         </div>
         <div class="col-m-4">
           <h3 class="title-tags">标签云：</h3>
-          <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">C语言</a> <a href="/tags/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" style="font-size: 10px;">C语言指针</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/WIndows/" style="font-size: 10px;">WIndows</a> <a href="/tags/alist/" style="font-size: 10px;">alist</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" style="font-size: 10px;">外网访问</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 15px;">安卓</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 10px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 15px;">数据结构与算法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构算法</a> <a href="/tags/%E6%A0%BC%E6%9C%BA/" style="font-size: 10px;">格机</a> <a href="/tags/%E7%9C%8B%E6%9D%BF%E5%A8%98/" style="font-size: 10px;">看板娘</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA/" style="font-size: 10px;">移动云手机</a>
+          <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">C语言</a> <a href="/tags/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" style="font-size: 10px;">C语言指针</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/WIndows/" style="font-size: 10px;">WIndows</a> <a href="/tags/alist/" style="font-size: 10px;">alist</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" style="font-size: 10px;">外网访问</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 15px;">安卓</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 10px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 15px;">数据结构与算法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构算法</a> <a href="/tags/%E6%A0%BC%E6%9C%BA/" style="font-size: 10px;">格机</a> <a href="/tags/%E7%9C%8B%E6%9D%BF%E5%A8%98/" style="font-size: 10px;">看板娘</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA/" style="font-size: 10px;">移动云手机</a>
         </div>
       </div>
     </section>
