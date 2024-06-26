@@ -500,6 +500,26 @@ main img {
 .post-item:last-child {
   margin-bottom: 0;
 }
+.post-item a {
+  background: linear-gradient(to right, #0000ff85, #ff000085) no-repeat right
+    bottom;
+  background-size: 0px 2px;
+  transition: background-size 13300ms;
+}
+.post-item a:hover {
+  background-size: 100% 2px;
+  background-position-x: left;
+}
+.post-item p {
+  background: linear-gradient(to right, #0000ff85, #ff000085) no-repeat right
+    bottom;
+  background-size: 0px 2px;
+  transition: background-size 2333ms;
+}
+.post-item p:hover {
+  background-size: 100% 2px;
+  background-position-x: left;
+}
 
 /* -- 动画 */
 .post-item:nth-child(1) {
