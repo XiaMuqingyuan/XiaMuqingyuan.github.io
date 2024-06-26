@@ -38,7 +38,7 @@ figure {
 }
 
 span {
-  background: linear-gradient(to right, #ec685cb3, #429faed0) no-repeat right
+  background: linear-gradient(to right, #0000ff85, #ff000085) no-repeat right
     bottom;
   background-size: 0px 2px;
   transition: background-size 1300ms;
