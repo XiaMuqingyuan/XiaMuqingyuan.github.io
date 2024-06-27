@@ -3,7 +3,7 @@
   <head>
   
   <meta charset="UTF-8" />
-  <title>数据类型的分析（二） - Frost</title>
+  <title>CentOS搭建Alist - Frost</title>
   <meta name="referrer" content="no-referrer" />
   <link rel="shortcut icon" href="/static/img/icon.png">
   <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
@@ -20,7 +20,7 @@
     content="width=device-width, maximum-scale=1, initial-scale=1"
   />
   <meta property="og:site_name" content="Frost" />
-  <meta property="og:title" content="数据类型的分析（二）" />
+  <meta property="og:title" content="CentOS搭建Alist" />
   
   <style>
     body:before {
@@ -64,38 +64,79 @@
  <main>
   <div class="wrap min">
     <section class="post-title">
-      <h2>数据类型的分析（二）</h2>
+      <h2>CentOS搭建Alist</h2>
       <div class="post-meta">
-        <time class="date">2023.09.10</time>
+        <time class="date">2024.06.27</time>
         
         <span class="category"
-          ><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span
+          ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
         >
         
       </div>
     </section>
     <article class="post-content">
-      
-      <blockquote>
-        这篇文章上次修改于 292 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
-      </blockquote>
-       <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>在计算机程序中，数据的基本单位通常是数据类型。数据类型是编程语言中用来定义数据的性质和操作的概念，它决定了数据在计算机内存中的存储方式和可以进行的操作。不同的数据类型具有不同的大小、表示范围和可操作性。</p>
-<h1 id="类型分类"><a href="#类型分类" class="headerlink" title="类型分类"></a>类型分类</h1><p>在计算机程序中，数据类型可以分为基本数据类型和复合数据类型。基本数据类型包括整数类型、浮点数类型、字符类型和布尔类型等，它们是计算机硬件直接支持的数据类型。复合数据类型包括数组、结构体、枚举和指针等，它们是由基本数据类型组合而成的更复杂的数据类型。</p>
-<h1 id="数据的多种变量"><a href="#数据的多种变量" class="headerlink" title="数据的多种变量"></a>数据的多种变量</h1><p>在程序中，数据通常以变量的形式出现。变量是用来存储和表示特定数据类型的内存位置，可以通过变量名来访问和操作其中存储的数据。程序可以对变量进行赋值、读取、修改和传递等操作，以实现对数据的处理和运算。</p>
-<p>#总结<br>综上所述，数据的基本单位在计算机程序中通常是数据类型，通过变量来表示和操作。不同的数据类型决定了数据的性质和可操作性，程序可以对变量进行各种操作，实现对数据的处理和运算。</p>
+       <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次我发了一个移动云手机搭建 Alist 的教程，这次同学白嫖了一台阿里云服务器，所以让我来帮他搭建 Alist</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>阿里云服务器</li>
+<li>CentOS 7.9V</li>
+<li>Alist 最新版本</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>其实 Alist 文档官方给我们提供了 Linux 一键安装命令</p>
+<blockquote>
+<p>安装</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://alist.nn.ci/v3.sh&quot; | bash -s install</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>更新</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://alist.nn.ci/v3.sh&quot; | bash -s update</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>卸载</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://alist.nn.ci/v3.sh&quot; | bash -s uninstall</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><p>安装完成 Alist 会在后台自动启动，此时你可以</p>
+<pre><code>随机生成一个密码
+./alist admin random
+
+手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码
+./alist admin set NEW_PASSWORD
+</code></pre>
+<p>注意现在启动还不能访问，需要配置一下端口开放</p>
+<pre><code>启动: systemctl start alist
+关闭: systemctl stop alist
+状态: systemctl status alist
+重启: systemctl restart alist
+</code></pre>
+<h1 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h1><p>进入安全组手动添加 Alist 的默认端口 5244</p>
+<p><img src="https://zglt.us.kg/file/4bb4229809847c40d487e.png" alt="tu1"></p>
+<p><img src="https://zglt.us.kg/file/ec1e692b27180d96b990f.png" alt="tu2"></p>
+<p>添加完端口重启一下 Alist 服务</p>
+<h1 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h1><p>访问地址: http:&#x2F;&#x2F;你的服务器公网 IP:5244<br>公网 ip 可以在阿里云服务器控制台查看</p>
+<h1 id="高级配置"><a href="#高级配置" class="headerlink" title="高级配置"></a>高级配置</h1><h2 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h2><p>如果你不想一直使用 ip 加端口的话还可以去配置里面修改端口号为 80</p>
+<pre><code>cd /root/alist/data
+vim config.json
+</code></pre>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scheme&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;http_port&quot;</span><span class="punctuation">:</span> <span class="number">80</span><span class="punctuation">,</span><span class="comment">//修改为80</span></span><br><span class="line">    <span class="attr">&quot;https_port&quot;</span><span class="punctuation">:</span> <span class="number">-1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;force_https&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cert_file&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;key_file&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;unix_file&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;unix_file_perm&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>修改为 80 端口后直接访问 http:&#x2F;&#x2F;你的服务器公网 IP 即可进入 alist 页面</p>
+<h2 id="如果条件更好的话还可以直接绑定域名"><a href="#如果条件更好的话还可以直接绑定域名" class="headerlink" title="如果条件更好的话还可以直接绑定域名"></a>如果条件更好的话还可以直接绑定域名</h2><p>这样子就不用记住那 ipv4 的公网 ip 了</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>还是很简单的，就是做的时候注意细节。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://alist.nn.ci/">Alist 官方文档</a></li>
+</ul>
 
     </article>
     <section class="post-near">
       <ul>
         
-        <li>
-          上一篇:
-          <a href="/2024/06/11/2024-06-11-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E9%83%A8%E7%BD%B2alist/">移动云手机部署alist</a>
-        </li>
+        <li>上一篇: 看完啦 (つд⊂)</li>
          
         <li>
           下一篇:
-          <a href="/2023/09/10/2023-09-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8C%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/">数据类型的分析（一）</a>
+          <a href="/2024/06/23/2024-06-23-vue%E8%BD%AE%E6%92%AD%E5%9B%BE/">Vue轮播图</a>
         </li>
         
       </ul>
@@ -103,7 +144,7 @@
 
     
     <section class="post-tags">
-      <a class="-none-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a><a class="-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a>
+      <a class="-none-link" href="/tags/Linux/" rel="tag">Linux</a><a class="-none-link" href="/tags/alist/" rel="tag">alist</a><a class="-none-link" href="/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" rel="tag">外网访问</a><a class="-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a>
     </section>
     
 
