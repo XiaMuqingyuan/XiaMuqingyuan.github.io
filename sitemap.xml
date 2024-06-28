@@ -4,7 +4,7 @@
   <url>
     <loc>http://zgyd.us.kg/xiangmu/index.html</loc>
     
-    <lastmod>2024-06-27</lastmod>
+    <lastmod>2024-06-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -180,6 +180,13 @@
   </url>
   
   <url>
+    <loc>http://zgyd.us.kg/tags/%E6%A0%BC%E6%9C%BA/</loc>
+    <lastmod>2024-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://zgyd.us.kg/tags/shell/</loc>
     <lastmod>2024-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -188,13 +195,6 @@
   
   <url>
     <loc>http://zgyd.us.kg/tags/Linux/</loc>
-    <lastmod>2024-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://zgyd.us.kg/tags/%E6%A0%BC%E6%9C%BA/</loc>
     <lastmod>2024-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -287,14 +287,14 @@
 
   
   <url>
-    <loc>http://zgyd.us.kg/categories/shell/</loc>
+    <loc>http://zgyd.us.kg/categories/%E5%AE%89%E5%8D%93/</loc>
     <lastmod>2024-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://zgyd.us.kg/categories/%E5%AE%89%E5%8D%93/</loc>
+    <loc>http://zgyd.us.kg/categories/shell/</loc>
     <lastmod>2024-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
