@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <meta charset="UTF-8" />
+  <title>思科模拟器 配置简单的交换机 - Frost</title>
+  <meta name="referrer" content="no-referrer" />
+  <link rel="shortcut icon" href="/static/img/icon.png">
+  <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
+
+  
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <meta
+    name="viewport"
+    content="width=device-width, maximum-scale=1, initial-scale=1"
+  />
+  <meta property="og:site_name" content="Frost" />
+  <meta property="og:title" content="思科模拟器 配置简单的交换机" />
+  
+  <style>
+    body:before {
+      content: "";
+      background-image: url(https://api.paugram.com/wallpaper?source=gh);
+    }
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    <header>
+  <div class="head-title">
+    <h4>Frost</h4>
+  </div>
+  <div class="head-action">
+    <div class="toggle-btn"></div>
+    <div class="light-btn"></div>
+    <div class="search-btn"></div>
+  </div>
+  <form class="head-search" method="post">
+    <input type="text" name="s" placeholder="搜索什么？" />
+  </form>
+  <nav class="head-menu">
+    <a href="/">首页</a>
+    <div class="has-child">
+      <a>分类</a>
+      <div class="sub-menu">
+        <a class="category-link" href="/categories/shell/">shell</a><a class="category-link" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a><a class="category-link" href="/categories/%E6%88%90%E8%AF%AD%E6%B3%A8%E9%87%8A/">成语注释</a><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+      </div>
+    </div>
+    
+    <a href="/hyly">念念碎</a>
+    
+    <a href="/xiangmu">项目</a>
+    
+    <a href="/about">关于我</a>
+    
+  </nav>
+</header>
+ <main>
+  <div class="wrap min">
+    <section class="post-title">
+      <h2>思科模拟器 配置简单的交换机</h2>
+      <div class="post-meta">
+        <time class="date">2023.11.23</time>
+        
+        <span class="category"
+          ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
+        >
+        
+      </div>
+    </section>
+    <article class="post-content">
+      
+      <blockquote>
+        这篇文章上次修改于 266 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
+      </blockquote>
+       <p>1.打开思科模拟器 放俩 pc</p>
+<p><img src="https://mark.cuckooing.cn/pics/pic_c64013e8.png" alt="pic_c64013e8.png"></p>
+<p>2.接着放一个交换机并用线路连接它们</p>
+<p><img src="https://mark.cuckooing.cn/pics/pic_736fc581.png" alt="pic_736fc581.png"></p>
+<p>3.配置交换机 vlan</p>
+<p><img src="https://mark.cuckooing.cn/pics/pic_283b52f7.png" alt="pic_283b52f7.png"></p>
+<p>最后配置两台 pc 的 ip 地址</p>
+<p><img src="https://mark.cuckooing.cn/pics/pic_dd86c79d.png" alt="pic_dd86c79d.png"></p>
+<p><img src="https://mark.cuckooing.cn/pics/pic_d3f0b141.png" alt="pic_d3f0b141.png"></p>
+<p>最后去 pc0 ping 一下</p>
+<p><img src="https://mark.cuckooing.cn/pics/pic_b2c5c895.png" alt="pic_b2c5c895.png"></p>
+<p>发现 pc0 可以 ping 通 pc1</p>
+<p>最后去交换机看一下 mac 地址</p>
+<p><img src="https://mark.cuckooing.cn/pics/pic_651fe536.png" alt="pic_651fe536.png"></p>
+<p>至此简单的配置交换机已经完成</p>
+
+    </article>
+    <section class="post-near">
+      <ul>
+        
+        <li>
+          上一篇:
+          <a href="/2024/06/11/2024-06-11-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E9%83%A8%E7%BD%B2alist/">移动云手机部署alist</a>
+        </li>
+         
+        <li>
+          下一篇:
+          <a href="/2023/11/22/2023-11-22-C%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E5%8D%95%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%9C%80%E5%A4%A7%E5%80%BC%E7%BB%93%E7%82%B9%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%80%BC/">C语言数据结构_查找并删除单链表中最大值结点并返回值</a>
+        </li>
+        
+      </ul>
+    </section>
+
+    
+    <section class="post-tags">
+      <a class="-none-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a>
+    </section>
+    
+
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="XiaMuqingyuan/XiaMuqingyuan.github.io"
+      data-repo-id="R_kgDOMI6vyA"
+      data-category="General"
+      data-category-id="DIC_kwDOMI6vyM4CgJja"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    
+    <section class="post-author">
+      
+      <figure class="author-avatar">
+        <img src="https://files.cnblogs.com/files/blogs/808760/touxiang.gif?t=1700582933&download=true" alt="Frost" />
+      </figure>
+      
+      <div class="author-info">
+        <h4>Frost</h4>
+        <p><font color='#FF2800'>恨</font><font color='#FF5000'>君</font><font color='#FF7800'>不</font><font color='#FFA000'>似</font><font color='#FFC800'>江</font><font color='#FFF000'>楼</font><font color='#D7FF00'>月</font><font color='#AFFF00'>，</font><font color='#87FF00'>南</font><font color='#5FFF00'>北</font><font color='#37FF00'>东</font><font color='#0FFF00'>西</font><font color='#00FF28'>，</font><font color='#00FF50'>南</font><font color='#00FF78'>北</font><font color='#00FFA0'>东</font><font color='#00FFC8'>西</font><font color='#00FFF0'>，</font><font color='#00D7FF'>只</font><font color='#00AFFF'>有</font><font color='#0087FF'>相</font><font color='#005FFF'>随</font><font color='#0037FF'>无</font><font color='#000FFF'>别</font><font color='#2800FF'>离</font><font color='#5000FF'>。</font><br>如本站内容对你有所帮助的话，不妨 <a target="_blank" rel="noopener" href='https://xxs.us.kg/about'>捐助支持</a> 一下？</p>
+      </div>
+    </section>
+    
+  </div>
+</main>
+ <footer>
+  <div class="buttons">
+    <a class="to-top" href="#"></a>
+  </div>
+  <div class="wrap min">
+    <section class="widget">
+      <div class="row">
+        <div class="col-m-4">
+          <h3 class="title-recent">最新文章：</h3>
+          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/08/11/2024-08-11-%E7%99%BE%E5%BA%A6%E7%9B%B4%E8%BF%9E%E5%85%8D%E6%B5%81/">百度直连免流</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/04/2024-08-04-%E5%9B%BE%E7%89%87%E6%98%AF%E5%90%A6%E6%AF%94%E6%96%87%E5%AD%97%E6%9B%B4%E5%BF%AB%E4%BC%A0%E8%BE%BE%E4%BF%A1%E6%81%AF/">图片是否比文字更快传达信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/02/2024-08-02-%E5%81%87%E5%A6%82%E4%BA%BA%E7%94%9F%E6%9C%89%E5%BF%AB%E8%BF%9B%E9%94%AE%EF%BC%8C%E4%BD%A0%E4%BC%9A%E9%80%89%E6%8B%A9%E7%82%B9%E5%87%BB%E5%90%97/">假如人生有快进键，你会选择点击吗</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/01/2024-08-01-%E6%88%90%E8%AF%AD%E8%A7%A3%E9%87%8A-%E6%9D%AF%E6%B0%B4%E8%BD%A6%E8%96%AA/">成语解释_杯水车薪</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/07/29/2024-07-29-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E5%BC%80%E5%90%AFADB/">移动云手机开启ADB</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/07/25/2024-07-15-%E6%88%90%E8%AF%AD%E8%A7%A3%E9%87%8A-%E9%BE%99%E9%98%B3%E4%B9%8B%E5%A5%BD/">成语解释_龙阳之好</a></li></ul>
+        </div>
+        <div class="col-m-4">
+          <h3 class="title-date">时光机：</h3>
+          <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li></ul>
+        </div>
+        <div class="col-m-4">
+          <h3 class="title-tags">标签云：</h3>
+          <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">C语言</a> <a href="/tags/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" style="font-size: 10px;">C语言指针</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/WIndows/" style="font-size: 10px;">WIndows</a> <a href="/tags/alist/" style="font-size: 13.33px;">alist</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/vue/" style="font-size: 13.33px;">vue</a> <a href="/tags/%E5%85%8D%E6%B5%81/" style="font-size: 10px;">免流</a> <a href="/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" style="font-size: 16.67px;">外网访问</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 13.33px;">安卓</a> <a href="/tags/%E6%88%90%E8%AF%AD%E6%B3%A8%E9%87%8A/" style="font-size: 13.33px;">成语注释</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13.33px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 16.67px;">数据结构与算法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构算法</a> <a href="/tags/%E6%A0%BC%E6%9C%BA/" style="font-size: 10px;">格机</a> <a href="/tags/%E7%9C%8B%E6%9D%BF%E5%A8%98/" style="font-size: 10px;">看板娘</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA/" style="font-size: 13.33px;">移动云手机</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 10px;">网络安全</a>
+        </div>
+      </div>
+    </section>
+    <section class="sub-footer">
+      <img
+        src="https://ip.ntrqq.net/images/rika.png?wd=JUU3JTk5JUJEJUU4JThDJUI2JUU2JUI4JTg1JUU2JUFDJUEyJUU2JTk3JUEwJUU1JTg4JUFCJUU0JUJBJThCJTJDJUU2JTg4JTkxJUU1JTlDJUE4JUU3JUFEJTg5JUU5JUEzJThFJUU0JUI5JTlGJUU3JUFEJTg5JUU0JUJEJUEw&r=u4rewl36a5"
+      />
+      <p>
+        © 2024
+        <a href="/">Frost</a>. All Rights Reserved.
+        By
+        <a
+          href="https://github.com/xiamuqingyuan/xiamuqingyuan.github.io"
+          target="_blank"
+          rel="nofollow"
+          >Frost</a
+        >.
+      </p>
+    </section>
+  </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+<script src="/static/1.js"></script>
+<script src="/static/2.js"></script>
+<script src="/static/3.js"></script>
+
+
+<script>
+  var hingle = new Paul_Hingle({"copyright":true,"night":true});
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

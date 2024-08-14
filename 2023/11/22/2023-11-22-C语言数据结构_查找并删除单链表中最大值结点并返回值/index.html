@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+  <meta charset="UTF-8" />
+  <title>C语言数据结构_查找并删除单链表中最大值结点并返回值 - Frost</title>
+  <meta name="referrer" content="no-referrer" />
+  <link rel="shortcut icon" href="/static/img/icon.png">
+  <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
+
+  
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <meta
+    name="viewport"
+    content="width=device-width, maximum-scale=1, initial-scale=1"
+  />
+  <meta property="og:site_name" content="Frost" />
+  <meta property="og:title" content="C语言数据结构_查找并删除单链表中最大值结点并返回值" />
+  
+  <style>
+    body:before {
+      content: "";
+      background-image: url(https://api.paugram.com/wallpaper?source=gh);
+    }
+  </style>
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+  <body>
+    <header>
+  <div class="head-title">
+    <h4>Frost</h4>
+  </div>
+  <div class="head-action">
+    <div class="toggle-btn"></div>
+    <div class="light-btn"></div>
+    <div class="search-btn"></div>
+  </div>
+  <form class="head-search" method="post">
+    <input type="text" name="s" placeholder="搜索什么？" />
+  </form>
+  <nav class="head-menu">
+    <a href="/">首页</a>
+    <div class="has-child">
+      <a>分类</a>
+      <div class="sub-menu">
+        <a class="category-link" href="/categories/shell/">shell</a><a class="category-link" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a><a class="category-link" href="/categories/%E6%88%90%E8%AF%AD%E6%B3%A8%E9%87%8A/">成语注释</a><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+      </div>
+    </div>
+    
+    <a href="/hyly">念念碎</a>
+    
+    <a href="/xiangmu">项目</a>
+    
+    <a href="/about">关于我</a>
+    
+  </nav>
+</header>
+ <main>
+  <div class="wrap min">
+    <section class="post-title">
+      <h2>C语言数据结构_查找并删除单链表中最大值结点并返回值</h2>
+      <div class="post-meta">
+        <time class="date">2023.11.22</time>
+        
+        <span class="category"
+          ><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span
+        >
+        
+      </div>
+    </section>
+    <article class="post-content">
+      
+      <blockquote>
+        这篇文章上次修改于 267 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
+      </blockquote>
+       <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> // 定义一个结构体</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">float</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line">Node *<span class="title function_">Chuangzao_LinkedList</span><span class="params">()</span> <span class="comment">// 创建一个链表</span></span><br><span class="line">&#123;</span><br><span class="line">    Node *head = <span class="literal">NULL</span>; <span class="comment">// 定义头指针</span></span><br><span class="line">    Node *tail = <span class="literal">NULL</span>; <span class="comment">// 定义尾指针</span></span><br><span class="line">    <span class="comment">/*并初始为null*/</span></span><br><span class="line">    <span class="type">float</span> Yuan_Su; <span class="comment">// 定义元素</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入多个整数（用空格分开，并以-1结束):\n&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>, &amp;Yuan_Su); <span class="comment">// 循环输入元素</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Yuan_Su == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>; <span class="comment">// 输入-1，退出循环</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Node *newNode = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node)); <span class="comment">// 创建新结点，用malloc分配内存</span></span><br><span class="line">        newNode-&gt;data = Yuan_Su;</span><br><span class="line">        newNode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">NULL</span>) <span class="comment">// 如果为头为空</span></span><br><span class="line">        &#123;</span><br><span class="line">            head = newNode; <span class="comment">// 指向新结点</span></span><br><span class="line">            tail = newNode;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            tail-&gt;next = newNode; <span class="comment">// 插入链表尾部</span></span><br><span class="line">            tail = newNode;       <span class="comment">// 更新指针</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> <span class="title function_">Shanchu_MaxNode</span><span class="params">(Node **head)</span> <span class="comment">// 定义删除链表最大值的函数</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (*head == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;链表为空！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Node *Dang_qian = *head; <span class="comment">// 当前结点为头</span></span><br><span class="line">    Node *maxNode = <span class="literal">NULL</span>;    <span class="comment">// 最大结点和当前结点前一个为空</span></span><br><span class="line">    Node *Qian_yige = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">float</span> maxValue = Dang_qian-&gt;data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (Dang_qian != <span class="literal">NULL</span> &amp;&amp; Dang_qian-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Dang_qian-&gt;next-&gt;data &gt; maxValue)</span><br><span class="line">        &#123;</span><br><span class="line">            maxValue = Dang_qian-&gt;next-&gt;data;</span><br><span class="line">            maxNode = Dang_qian;</span><br><span class="line">            Qian_yige = maxNode;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Dang_qian = Dang_qian-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (maxNode == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        maxNode = *head;</span><br><span class="line">        *head = (*head)-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        maxNode = maxNode-&gt;next;</span><br><span class="line">        Qian_yige-&gt;next = maxNode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> maxData = maxNode-&gt;data;</span><br><span class="line">    <span class="built_in">free</span>(maxNode);</span><br><span class="line">    <span class="keyword">return</span> maxData;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">printLinkedList</span><span class="params">(Node *head)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    printLinkedList(head-&gt;next);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; %.2f-&gt;&quot;</span>, head-&gt;data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    Node *head = Chuangzao_LinkedList();</span><br><span class="line">    <span class="type">float</span> maxData = Shanchu_MaxNode(&amp;head);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;删除的最大值为：%.2f\n&quot;</span>, maxData);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;删除链表最大的值后，链表的值如下：\n&quot;</span>);</span><br><span class="line">    printLinkedList(head);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>); <span class="comment">// vscode中加入可以使cmd可以保留在屏幕上，删除则会一闪而过</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="https://mark.cuckooing.cn/pics/pic_0a297575.png" alt="pic_0a297575.png"></p>
+
+    </article>
+    <section class="post-near">
+      <ul>
+        
+        <li>
+          上一篇:
+          <a href="/2023/11/23/2023-11-23-%E6%80%9D%E7%A7%91%E6%A8%A1%E6%8B%9F%E5%99%A8%20%E9%85%8D%E7%BD%AE%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%9C%BA/">思科模拟器 配置简单的交换机</a>
+        </li>
+         
+        <li>
+          下一篇:
+          <a href="/2023/11/22/2023-11-22-%E5%88%B6%E4%BD%9C%E5%90%8D%E6%9B%B2%E6%AC%A3%E8%B5%8F%E9%A1%B5%E9%9D%A2/">制作名曲欣赏页面</a>
+        </li>
+        
+      </ul>
+    </section>
+
+    
+    <section class="post-tags">
+      <a class="-none-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a><a class="-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a>
+    </section>
+    
+
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="XiaMuqingyuan/XiaMuqingyuan.github.io"
+      data-repo-id="R_kgDOMI6vyA"
+      data-category="General"
+      data-category-id="DIC_kwDOMI6vyM4CgJja"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    
+    <section class="post-author">
+      
+      <figure class="author-avatar">
+        <img src="https://files.cnblogs.com/files/blogs/808760/touxiang.gif?t=1700582933&download=true" alt="Frost" />
+      </figure>
+      
+      <div class="author-info">
+        <h4>Frost</h4>
+        <p><font color='#FF2800'>恨</font><font color='#FF5000'>君</font><font color='#FF7800'>不</font><font color='#FFA000'>似</font><font color='#FFC800'>江</font><font color='#FFF000'>楼</font><font color='#D7FF00'>月</font><font color='#AFFF00'>，</font><font color='#87FF00'>南</font><font color='#5FFF00'>北</font><font color='#37FF00'>东</font><font color='#0FFF00'>西</font><font color='#00FF28'>，</font><font color='#00FF50'>南</font><font color='#00FF78'>北</font><font color='#00FFA0'>东</font><font color='#00FFC8'>西</font><font color='#00FFF0'>，</font><font color='#00D7FF'>只</font><font color='#00AFFF'>有</font><font color='#0087FF'>相</font><font color='#005FFF'>随</font><font color='#0037FF'>无</font><font color='#000FFF'>别</font><font color='#2800FF'>离</font><font color='#5000FF'>。</font><br>如本站内容对你有所帮助的话，不妨 <a target="_blank" rel="noopener" href='https://xxs.us.kg/about'>捐助支持</a> 一下？</p>
+      </div>
+    </section>
+    
+  </div>
+</main>
+ <footer>
+  <div class="buttons">
+    <a class="to-top" href="#"></a>
+  </div>
+  <div class="wrap min">
+    <section class="widget">
+      <div class="row">
+        <div class="col-m-4">
+          <h3 class="title-recent">最新文章：</h3>
+          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/08/11/2024-08-11-%E7%99%BE%E5%BA%A6%E7%9B%B4%E8%BF%9E%E5%85%8D%E6%B5%81/">百度直连免流</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/04/2024-08-04-%E5%9B%BE%E7%89%87%E6%98%AF%E5%90%A6%E6%AF%94%E6%96%87%E5%AD%97%E6%9B%B4%E5%BF%AB%E4%BC%A0%E8%BE%BE%E4%BF%A1%E6%81%AF/">图片是否比文字更快传达信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/02/2024-08-02-%E5%81%87%E5%A6%82%E4%BA%BA%E7%94%9F%E6%9C%89%E5%BF%AB%E8%BF%9B%E9%94%AE%EF%BC%8C%E4%BD%A0%E4%BC%9A%E9%80%89%E6%8B%A9%E7%82%B9%E5%87%BB%E5%90%97/">假如人生有快进键，你会选择点击吗</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/01/2024-08-01-%E6%88%90%E8%AF%AD%E8%A7%A3%E9%87%8A-%E6%9D%AF%E6%B0%B4%E8%BD%A6%E8%96%AA/">成语解释_杯水车薪</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/07/29/2024-07-29-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E5%BC%80%E5%90%AFADB/">移动云手机开启ADB</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/07/25/2024-07-15-%E6%88%90%E8%AF%AD%E8%A7%A3%E9%87%8A-%E9%BE%99%E9%98%B3%E4%B9%8B%E5%A5%BD/">成语解释_龙阳之好</a></li></ul>
+        </div>
+        <div class="col-m-4">
+          <h3 class="title-date">时光机：</h3>
+          <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li></ul>
+        </div>
+        <div class="col-m-4">
+          <h3 class="title-tags">标签云：</h3>
+          <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 20px;">C语言</a> <a href="/tags/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/" style="font-size: 10px;">C语言指针</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/WIndows/" style="font-size: 10px;">WIndows</a> <a href="/tags/alist/" style="font-size: 13.33px;">alist</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/vue/" style="font-size: 13.33px;">vue</a> <a href="/tags/%E5%85%8D%E6%B5%81/" style="font-size: 10px;">免流</a> <a href="/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" style="font-size: 16.67px;">外网访问</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 13.33px;">安卓</a> <a href="/tags/%E6%88%90%E8%AF%AD%E6%B3%A8%E9%87%8A/" style="font-size: 13.33px;">成语注释</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 13.33px;">数据存储</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" style="font-size: 16.67px;">数据结构与算法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/" style="font-size: 10px;">数据结构算法</a> <a href="/tags/%E6%A0%BC%E6%9C%BA/" style="font-size: 10px;">格机</a> <a href="/tags/%E7%9C%8B%E6%9D%BF%E5%A8%98/" style="font-size: 10px;">看板娘</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA/" style="font-size: 13.33px;">移动云手机</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 10px;">网络安全</a>
+        </div>
+      </div>
+    </section>
+    <section class="sub-footer">
+      <img
+        src="https://ip.ntrqq.net/images/rika.png?wd=JUU3JTk5JUJEJUU4JThDJUI2JUU2JUI4JTg1JUU2JUFDJUEyJUU2JTk3JUEwJUU1JTg4JUFCJUU0JUJBJThCJTJDJUU2JTg4JTkxJUU1JTlDJUE4JUU3JUFEJTg5JUU5JUEzJThFJUU0JUI5JTlGJUU3JUFEJTg5JUU0JUJEJUEw&r=u4rewl36a5"
+      />
+      <p>
+        © 2024
+        <a href="/">Frost</a>. All Rights Reserved.
+        By
+        <a
+          href="https://github.com/xiamuqingyuan/xiamuqingyuan.github.io"
+          target="_blank"
+          rel="nofollow"
+          >Frost</a
+        >.
+      </p>
+    </section>
+  </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+<script src="/static/1.js"></script>
+<script src="/static/2.js"></script>
+<script src="/static/3.js"></script>
+
+
+<script>
+  var hingle = new Paul_Hingle({"copyright":true,"night":true});
+</script>
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
