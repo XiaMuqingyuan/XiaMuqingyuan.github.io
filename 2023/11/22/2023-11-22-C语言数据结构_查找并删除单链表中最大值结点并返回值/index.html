@@ -79,8 +79,116 @@
       <blockquote>
         这篇文章上次修改于 267 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
       </blockquote>
-       <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> // 定义一个结构体</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="type">float</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; Node;</span><br><span class="line"></span><br><span class="line">Node *<span class="title function_">Chuangzao_LinkedList</span><span class="params">()</span> <span class="comment">// 创建一个链表</span></span><br><span class="line">&#123;</span><br><span class="line">    Node *head = <span class="literal">NULL</span>; <span class="comment">// 定义头指针</span></span><br><span class="line">    Node *tail = <span class="literal">NULL</span>; <span class="comment">// 定义尾指针</span></span><br><span class="line">    <span class="comment">/*并初始为null*/</span></span><br><span class="line">    <span class="type">float</span> Yuan_Su; <span class="comment">// 定义元素</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;请输入多个整数（用空格分开，并以-1结束):\n&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%f&quot;</span>, &amp;Yuan_Su); <span class="comment">// 循环输入元素</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (Yuan_Su == <span class="number">-1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>; <span class="comment">// 输入-1，退出循环</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Node *newNode = (Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node)); <span class="comment">// 创建新结点，用malloc分配内存</span></span><br><span class="line">        newNode-&gt;data = Yuan_Su;</span><br><span class="line">        newNode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">NULL</span>) <span class="comment">// 如果为头为空</span></span><br><span class="line">        &#123;</span><br><span class="line">            head = newNode; <span class="comment">// 指向新结点</span></span><br><span class="line">            tail = newNode;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            tail-&gt;next = newNode; <span class="comment">// 插入链表尾部</span></span><br><span class="line">            tail = newNode;       <span class="comment">// 更新指针</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> <span class="title function_">Shanchu_MaxNode</span><span class="params">(Node **head)</span> <span class="comment">// 定义删除链表最大值的函数</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (*head == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;链表为空！&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Node *Dang_qian = *head; <span class="comment">// 当前结点为头</span></span><br><span class="line">    Node *maxNode = <span class="literal">NULL</span>;    <span class="comment">// 最大结点和当前结点前一个为空</span></span><br><span class="line">    Node *Qian_yige = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="type">float</span> maxValue = Dang_qian-&gt;data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (Dang_qian != <span class="literal">NULL</span> &amp;&amp; Dang_qian-&gt;next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Dang_qian-&gt;next-&gt;data &gt; maxValue)</span><br><span class="line">        &#123;</span><br><span class="line">            maxValue = Dang_qian-&gt;next-&gt;data;</span><br><span class="line">            maxNode = Dang_qian;</span><br><span class="line">            Qian_yige = maxNode;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            Dang_qian = Dang_qian-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (maxNode == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        maxNode = *head;</span><br><span class="line">        *head = (*head)-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        maxNode = maxNode-&gt;next;</span><br><span class="line">        Qian_yige-&gt;next = maxNode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> maxData = maxNode-&gt;data;</span><br><span class="line">    <span class="built_in">free</span>(maxNode);</span><br><span class="line">    <span class="keyword">return</span> maxData;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">printLinkedList</span><span class="params">(Node *head)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (head == <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    printLinkedList(head-&gt;next);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; %.2f-&gt;&quot;</span>, head-&gt;data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    Node *head = Chuangzao_LinkedList();</span><br><span class="line">    <span class="type">float</span> maxData = Shanchu_MaxNode(&amp;head);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;删除的最大值为：%.2f\n&quot;</span>, maxData);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;删除链表最大的值后，链表的值如下：\n&quot;</span>);</span><br><span class="line">    printLinkedList(head);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>); <span class="comment">// vscode中加入可以使cmd可以保留在屏幕上，删除则会一闪而过</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+       <h2 id="这个则是一个-C-语言的期中作业"><a href="#这个则是一个-C-语言的期中作业" class="headerlink" title="这个则是一个 C 语言的期中作业"></a>这个则是一个 C 语言的期中作业</h2><p>由于是作业，也是按照要求顺便写了出来，大佬们勿喷！</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
+typedef struct Node // 定义一个结构体
+&#123;
+    float data;
+    struct Node *next;
+&#125; Node;
+
+Node *Chuangzao_LinkedList() // 创建一个链表
+&#123;
+    Node *head = NULL; // 定义头指针
+    Node *tail = NULL; // 定义尾指针
+    /*并初始为null*/
+    float Yuan_Su; // 定义元素
+    printf(&quot;请输入多个整数（用空格分开，并以-1结束):\n&quot;);
+    while (1)
+    &#123;
+        scanf(&quot;%f&quot;, &amp;Yuan_Su); // 循环输入元素
+
+        if (Yuan_Su == -1)
+        &#123;
+            break; // 输入-1，退出循环
+        &#125;
+
+        Node *newNode = (Node *)malloc(sizeof(Node)); // 创建新结点，用malloc分配内存
+        newNode-&gt;data = Yuan_Su;
+        newNode-&gt;next = NULL;
+
+        if (head == NULL) // 如果为头为空
+        &#123;
+            head = newNode; // 指向新结点
+            tail = newNode;
+        &#125;
+        else
+        &#123;
+            tail-&gt;next = newNode; // 插入链表尾部
+            tail = newNode;       // 更新指针
+        &#125;
+    &#125;
+
+    return head;
+&#125;
+
+float Shanchu_MaxNode(Node **head) // 定义删除链表最大值的函数
+&#123;
+    if (*head == NULL)
+    &#123;
+        printf(&quot;链表为空！&quot;);
+        return -1;
+    &#125;
+
+    Node *Dang_qian = *head; // 当前结点为头
+    Node *maxNode = NULL;    // 最大结点和当前结点前一个为空
+    Node *Qian_yige = NULL;
+    float maxValue = Dang_qian-&gt;data;
+
+    while (Dang_qian != NULL &amp;&amp; Dang_qian-&gt;next != NULL)
+    &#123;
+        if (Dang_qian-&gt;next-&gt;data &gt; maxValue)
+        &#123;
+            maxValue = Dang_qian-&gt;next-&gt;data;
+            maxNode = Dang_qian;
+            Qian_yige = maxNode;
+        &#125;
+        else
+        &#123;
+            Dang_qian = Dang_qian-&gt;next;
+        &#125;
+    &#125;
+
+    if (maxNode == NULL)
+    &#123;
+        maxNode = *head;
+        *head = (*head)-&gt;next;
+    &#125;
+    else
+    &#123;
+        maxNode = maxNode-&gt;next;
+        Qian_yige-&gt;next = maxNode-&gt;next;
+    &#125;
+
+    float maxData = maxNode-&gt;data;
+    free(maxNode);
+    return maxData;
+&#125;
+
+void printLinkedList(Node *head)
+&#123;
+    if (head == NULL)
+    &#123;
+        return;
+    &#125;
+    printLinkedList(head-&gt;next);
+    printf(&quot; %.2f-&gt;&quot;, head-&gt;data);
+&#125;
+
+int main()
+&#123;
+    Node *head = Chuangzao_LinkedList();
+    float maxData = Shanchu_MaxNode(&amp;head);
+    printf(&quot;删除的最大值为：%.2f\n&quot;, maxData);
+    printf(&quot;删除链表最大的值后，链表的值如下：\n&quot;);
+    printLinkedList(head);
+    printf(&quot;\n&quot;);
+    system(&quot;pause&quot;); // vscode中加入可以使cmd可以保留在屏幕上，删除则会一闪而过
+    return 0;
+&#125;
+</code></pre>
 <h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="https://mark.cuckooing.cn/pics/pic_0a297575.png" alt="pic_0a297575.png"></p>
 
     </article>
@@ -89,12 +197,12 @@
         
         <li>
           上一篇:
-          <a href="/2023/11/23/2023-11-23-%E6%80%9D%E7%A7%91%E6%A8%A1%E6%8B%9F%E5%99%A8%20%E9%85%8D%E7%BD%AE%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%9C%BA/">思科模拟器 配置简单的交换机</a>
+          <a href="/2023/11/22/2023-11-22-%E5%88%B6%E4%BD%9C%E5%90%8D%E6%9B%B2%E6%AC%A3%E8%B5%8F%E9%A1%B5%E9%9D%A2/">制作名曲欣赏页面</a>
         </li>
          
         <li>
           下一篇:
-          <a href="/2023/11/22/2023-11-22-%E5%88%B6%E4%BD%9C%E5%90%8D%E6%9B%B2%E6%AC%A3%E8%B5%8F%E9%A1%B5%E9%9D%A2/">制作名曲欣赏页面</a>
+          <a href="/2023/09/10/2023-09-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80/">数据类型的分析（二）</a>
         </li>
         
       </ul>

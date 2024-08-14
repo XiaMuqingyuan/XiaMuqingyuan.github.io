@@ -79,8 +79,137 @@
       <blockquote>
         这篇文章上次修改于 267 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
       </blockquote>
-       <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>名曲欣赏<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">flex-direction</span>: row;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">align-items</span>: flex-start;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">justify-content</span>: space-between;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">max-width</span>: <span class="number">1200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">padding</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.left</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">flex-basis</span>: <span class="number">20%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span>: <span class="number">#87ceeb</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.middle</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">flex-basis</span>: <span class="number">60%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span>: blanchedalmond;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.right</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">flex-basis</span>: <span class="number">20%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background-color</span>: <span class="number">#87ceeb</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">opacity</span>: <span class="number">0.8</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.list</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">padding</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">list-style</span>: none;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.list</span> <span class="selector-tag">li</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-size</span>: <span class="number">16px</span>;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.title</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-size</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-weight</span>: bold;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">text-decoration</span>: underline;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">      <span class="selector-class">.image</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">max-width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: auto;</span></span><br><span class="line"><span class="language-css">      &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">&quot;background-color: beige&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">nav</span> <span class="attr">style</span>=<span class="string">&quot;font-size: 18px&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;color: #dc143c&quot;</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;color: ffd700&quot;</span>&gt;</span>精华区<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">&quot;color: #00ff7f&quot;</span>&gt;</span>收藏区<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.baidu.com&quot;</span>&gt;</span>名曲欣赏<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span>《广陵散》<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span>《阳关三弄》<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span>《平沙落雁》<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span>《醉渔晚唱》<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span>&gt;</span>《酒狂》<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;middle&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">&quot;title&quot;</span>&gt;</span>元问好《摸鱼儿·问莲根、有丝多少》<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">          泰和中，大名民家小儿女，有以私情不如意赴水者，官为踪迹之，无见也。其后踏藕者得二尸水中，衣服仍可验，其事乃白。是岁此陂荷花开，无不并蒂者。沁水梁国用，时为录事判官，为李用章内翰言如此。此曲以乐府《双蕖怨》命篇。“咀五色之灵芝，香生九窍；咽三危之瑞露，春动七情”，韩偓《香奁集》中自序语。</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>问莲根、有丝多少，莲心知为谁苦？<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>双花脉脉娇相向，只是旧家儿女。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>天已许。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>甚不教、白头生死鸳鸯浦？<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>夕阳无语。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>算谢客烟中，湘妃江上，未是断肠处。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>香奁梦，好在灵芝瑞露。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>人间俯仰今古。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>海枯石烂情缘在，幽恨不埋黄土。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>相思树，流年度，无端又被西风误。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>兰舟少住。怕载酒重来，红衣半落，狼藉卧风雨。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;images/09.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>春江花月夜<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">/*图片路径改为自己的*/</span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;images/02.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>花问梦事<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;image&quot;</span> <span class="attr">src</span>=<span class="string">&quot;images/01.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>昆曲<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span> <span class="attr">style</span>=<span class="string">&quot;text-align: center; background-color: #87cefa&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>By XiaMuqingyuan 版权所有 &amp;copy 2023-10-21<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+       <h2 id="一个课本里面的简单-HTML-页面"><a href="#一个课本里面的简单-HTML-页面" class="headerlink" title="一个课本里面的简单 HTML 页面"></a>一个课本里面的简单 HTML 页面</h2><p>由于是作业，而且加上有点无聊就顺手写了一个垃圾页面出来，大佬们勿喷！</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;名曲欣赏&lt;/title&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;style&gt;
+      .container &#123;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      &#125;
+      .left &#123;
+        flex-basis: 20%;
+        background-color: #87ceeb;
+        opacity: 0.8;
+      &#125;
+      .middle &#123;
+        flex-basis: 60%;
+        margin: 0 20px;
+        background-color: blanchedalmond;
+        opacity: 0.8;
+      &#125;
+      .right &#123;
+        flex-basis: 20%;
+        background-color: #87ceeb;
+        opacity: 0.8;
+        text-align: center;
+      &#125;
+      .list &#123;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      &#125;
+      .list li &#123;
+        margin-bottom: 10px;
+        font-size: 16px;
+      &#125;
+      .title &#123;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-decoration: underline;
+      &#125;
+      .image &#123;
+        max-width: 100%;
+        height: auto;
+      &#125;
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body style=&quot;background-color: beige&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;left&quot;&gt;
+        &lt;nav style=&quot;font-size: 18px&quot;&gt;
+          &lt;ul&gt;
+            &lt;li&gt;
+              &lt;a style=&quot;color: #dc143c&quot;&gt;首页&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;a style=&quot;color: ffd700&quot;&gt;精华区&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+              &lt;a style=&quot;color: #00ff7f&quot;&gt;收藏区&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;p&gt; &lt;/p&gt;
+        &lt;h2 class=&quot;title&quot;&gt;
+          &lt;a href=&quot;https://www.baidu.com&quot;&gt;名曲欣赏&lt;/a&gt;
+        &lt;/h2&gt;
+        &lt;ul class=&quot;list&quot;&gt;
+          &lt;li&gt;《广陵散》&lt;/li&gt;
 
+          &lt;li&gt;《阳关三弄》&lt;/li&gt;
+
+          &lt;li&gt;《平沙落雁》&lt;/li&gt;
+
+          &lt;li&gt;《醉渔晚唱》&lt;/li&gt;
+
+          &lt;li&gt;《酒狂》&lt;/li&gt;
+          &lt;p&gt; &lt;/p&gt;
+          &lt;p&gt; &lt;/p&gt;
+          &lt;p&gt; &lt;/p&gt;
+          &lt;p&gt; &lt;/p&gt;
+          &lt;p&gt; &lt;/p&gt;
+          &lt;p&gt; &lt;/p&gt;
+          &lt;p&gt; &lt;/p&gt;
+          &lt;p&gt; &lt;/p&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;middle&quot;&gt;
+        &lt;p&gt; &lt;/p&gt;
+        &lt;h2 class=&quot;title&quot;&gt;元问好《摸鱼儿·问莲根、有丝多少》&lt;/h2&gt;
+        &lt;p&gt;
+          泰和中，大名民家小儿女，有以私情不如意赴水者，官为踪迹之，无见也。其后踏藕者得二尸水中，衣服仍可验，其事乃白。是岁此陂荷花开，无不并蒂者。沁水梁国用，时为录事判官，为李用章内翰言如此。此曲以乐府《双蕖怨》命篇。“咀五色之灵芝，香生九窍；咽三危之瑞露，春动七情”，韩偓《香奁集》中自序语。
+        &lt;/p&gt;
+        &lt;p&gt;问莲根、有丝多少，莲心知为谁苦？&lt;/p&gt;
+        &lt;p&gt;双花脉脉娇相向，只是旧家儿女。&lt;/p&gt;
+        &lt;p&gt;天已许。&lt;/p&gt;
+        &lt;p&gt;甚不教、白头生死鸳鸯浦？&lt;/p&gt;
+        &lt;p&gt;夕阳无语。&lt;/p&gt;
+        &lt;p&gt;算谢客烟中，湘妃江上，未是断肠处。&lt;/p&gt;
+        &lt;p&gt;香奁梦，好在灵芝瑞露。&lt;/p&gt;
+        &lt;p&gt;人间俯仰今古。&lt;/p&gt;
+        &lt;p&gt;海枯石烂情缘在，幽恨不埋黄土。&lt;/p&gt;
+        &lt;p&gt;相思树，流年度，无端又被西风误。&lt;/p&gt;
+        &lt;p&gt;兰舟少住。怕载酒重来，红衣半落，狼藉卧风雨。&lt;/p&gt;
+        &lt;p&gt; &lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;right&quot;&gt;
+        &lt;img class=&quot;image&quot; src=&quot;images/09.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;p&gt;春江花月夜&lt;/p&gt;
+/*图片路径改为自己的*/
+        &lt;img class=&quot;image&quot; src=&quot;images/02.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;p&gt;花问梦事&lt;/p&gt;
+
+        &lt;img class=&quot;image&quot; src=&quot;images/01.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;p&gt;昆曲&lt;/p&gt;
+        &lt;p&gt; &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;footer style=&quot;text-align: center; background-color: #87cefa&quot;&gt;
+      &lt;p&gt;By XiaMuqingyuan 版权所有 &amp;copy 2023-10-21&lt;/p&gt;
+    &lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 <h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p><img src="https://mark.cuckooing.cn/pics/pic_80da87fd.png" alt="pic_80da87fd.png"></p>
 
     </article>
@@ -89,12 +218,12 @@
         
         <li>
           上一篇:
-          <a href="/2023/11/22/2023-11-22-C%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E5%8D%95%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%9C%80%E5%A4%A7%E5%80%BC%E7%BB%93%E7%82%B9%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%80%BC/">C语言数据结构_查找并删除单链表中最大值结点并返回值</a>
+          <a href="/2023/11/23/2023-11-23-%E6%80%9D%E7%A7%91%E6%A8%A1%E6%8B%9F%E5%99%A8%20%E9%85%8D%E7%BD%AE%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%9C%BA/">思科模拟器 配置简单的交换机</a>
         </li>
          
         <li>
           下一篇:
-          <a href="/2023/09/10/2023-09-10-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95C%E8%AF%AD%E8%A8%80/">数据类型的分析（二）</a>
+          <a href="/2023/11/22/2023-11-22-C%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E5%8D%95%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%9C%80%E5%A4%A7%E5%80%BC%E7%BB%93%E7%82%B9%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%80%BC/">C语言数据结构_查找并删除单链表中最大值结点并返回值</a>
         </li>
         
       </ul>
