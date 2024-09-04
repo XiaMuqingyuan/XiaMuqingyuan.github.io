@@ -3,7 +3,7 @@
   <head>
   
   <meta charset="UTF-8" />
-  <title>移动云手机CNS - Frost</title>
+  <title>移动云手机CNS - 雨相的Blog</title>
   <meta name="referrer" content="no-referrer" />
   <link rel="shortcut icon" href="/static/img/icon.png">
   <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
@@ -19,7 +19,7 @@
     name="viewport"
     content="width=device-width, maximum-scale=1, initial-scale=1"
   />
-  <meta property="og:site_name" content="Frost" />
+  <meta property="og:site_name" content="雨相的Blog" />
   <meta property="og:title" content="移动云手机CNS" />
   
   <style>
@@ -34,7 +34,7 @@
   <body>
     <header>
   <div class="head-title">
-    <h4>Frost</h4>
+    <h4>雨相的Blog</h4>
   </div>
   <div class="head-action">
     <div class="toggle-btn"></div>
@@ -82,7 +82,7 @@
 <h3 id="2-Termux-配置"><a href="#2-Termux-配置" class="headerlink" title="2. Termux 配置"></a>2. Termux 配置</h3><p>打开 Termux 按照照以下步骤操作：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">pkg update</span><br><span class="line"></span><br><span class="line">pkg install proot-distro</span><br><span class="line"></span><br><span class="line">然后打开MT管理器去 /data/data/com.termux/files/usr/bin/proot-distro 这个文件里将</span><br><span class="line"></span><br><span class="line">if [ &quot;$(id -u)&quot; = &quot;0&quot; ]; then</span><br><span class="line">	msg</span><br><span class="line">	msg &quot;$&#123;BRED&#125;Error: #$&#123;PROGRAM_NAME&#125; should not be #executed as root user.$&#123;RST&#125;&quot;</span><br><span class="line">	msg</span><br><span class="line">	exit 1</span><br><span class="line">fi</span><br><span class="line">这行代码注释掉 也就是在前面加上#号</span><br><span class="line"></span><br><span class="line">然后执行开始下面命令安装</span><br><span class="line"></span><br><span class="line">pkg install tsu</span><br><span class="line"></span><br><span class="line">tsu</span><br><span class="line"></span><br><span class="line">proot-distro list</span><br><span class="line"></span><br><span class="line">proot-distro install ubuntu</span><br><span class="line"></span><br><span class="line">proot-distro login ubuntu</span><br><span class="line"></span><br><span class="line">apt full-upgrade</span><br><span class="line"></span><br><span class="line">apt update &amp;&amp; apt upgrade -y</span><br><span class="line"></span><br><span class="line">apt-get install systemd &amp;&amp; apt-get install aptitude</span><br><span class="line"></span><br><span class="line">aptitude install systemctl</span><br><span class="line"></span><br><span class="line">apt update -y &amp;&amp; apt install -y curl &amp;&amp; apt install -y socat</span><br><span class="line"></span><br><span class="line">curl -kLO http://binary.quicknet.cyou/builds.sh &amp;&amp; sh builds.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="3-配置-cns"><a href="#3-配置-cns" class="headerlink" title="3. 配置 cns"></a>3. 配置 cns</h3><p>其实执行完最后一条拉取命令后，你就可以选择安装了<br>选择 1，回车<br>在选择 2 的 cns，回车<br>然后其他的默认，除了端口号和 csn 密码<br>移动所开放的端口号只有 10000-10004<br>所以端口号只能在这几个里面选择。然后找外部端口这个教程可以移步到<a target="_blank" rel="noopener" href="https://xxs.us.kg/2024/06/11/2024-06-11-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E9%83%A8%E7%BD%B2alist/">这里</a>进行查看</p>
+<h3 id="3-配置-cns"><a href="#3-配置-cns" class="headerlink" title="3. 配置 cns"></a>3. 配置 cns</h3><p>其实执行完最后一条拉取命令后，你就可以选择安装了<br>选择 1，回车<br>在选择 2 的 cns，回车<br>然后其他的默认，除了端口号和 csn 密码<br>移动所开放的端口号只有 10000-10004<br>所以端口号只能在这几个里面选择。然后找外部端口这个教程可以移步到<a href="https://xxs.us.kg/2024/06/11/2024-06-11-%E7%A7%BB%E5%8A%A8%E4%BA%91%E6%89%8B%E6%9C%BA%E9%83%A8%E7%BD%B2alist/">这里</a>进行查看</p>
 <h2 id="3-使用"><a href="#3-使用" class="headerlink" title="3. 使用"></a>3. 使用</h2><p>打开百度直连模块在<br>cns_server &#x3D; 这里填 ip 和外部端口<br>cns_passwd &#x3D; 这里填密码</p>
 <h2 id="4-注意事项"><a href="#4-注意事项" class="headerlink" title="4. 注意事项"></a>4. 注意事项</h2><p>如果云手机休眠或者维护然后 cns 断开连接，需要重新启动 cns 即可</p>
 
@@ -135,7 +135,7 @@
       
       <div class="author-info">
         <h4>Frost</h4>
-        <p><font color='#FF2800'>恨</font><font color='#FF5000'>君</font><font color='#FF7800'>不</font><font color='#FFA000'>似</font><font color='#FFC800'>江</font><font color='#FFF000'>楼</font><font color='#D7FF00'>月</font><font color='#AFFF00'>，</font><font color='#87FF00'>南</font><font color='#5FFF00'>北</font><font color='#37FF00'>东</font><font color='#0FFF00'>西</font><font color='#00FF28'>，</font><font color='#00FF50'>南</font><font color='#00FF78'>北</font><font color='#00FFA0'>东</font><font color='#00FFC8'>西</font><font color='#00FFF0'>，</font><font color='#00D7FF'>只</font><font color='#00AFFF'>有</font><font color='#0087FF'>相</font><font color='#005FFF'>随</font><font color='#0037FF'>无</font><font color='#000FFF'>别</font><font color='#2800FF'>离</font><font color='#5000FF'>。</font><br>如本站内容对你有所帮助的话，不妨 <a target="_blank" rel="noopener" href='https://xxs.us.kg/about'>捐助支持</a> 一下？</p>
+        <p><font color='#FF2800'>恨</font><font color='#FF5000'>君</font><font color='#FF7800'>不</font><font color='#FFA000'>似</font><font color='#FFC800'>江</font><font color='#FFF000'>楼</font><font color='#D7FF00'>月</font><font color='#AFFF00'>，</font><font color='#87FF00'>南</font><font color='#5FFF00'>北</font><font color='#37FF00'>东</font><font color='#0FFF00'>西</font><font color='#00FF28'>，</font><font color='#00FF50'>南</font><font color='#00FF78'>北</font><font color='#00FFA0'>东</font><font color='#00FFC8'>西</font><font color='#00FFF0'>，</font><font color='#00D7FF'>只</font><font color='#00AFFF'>有</font><font color='#0087FF'>相</font><font color='#005FFF'>随</font><font color='#0037FF'>无</font><font color='#000FFF'>别</font><font color='#2800FF'>离</font><font color='#5000FF'>。</font><br>如本站内容对你有所帮助的话，不妨 <a href='https://xxs.us.kg/about'>捐助支持</a> 一下？</p>
       </div>
     </section>
     
@@ -168,7 +168,7 @@
       />
       <p>
         © 2024
-        <a href="/">Frost</a>. All Rights Reserved.
+        <a href="/">雨相的Blog</a>. All Rights Reserved.
         By
         <a
           href="https://github.com/xiamuqingyuan/xiamuqingyuan.github.io"
