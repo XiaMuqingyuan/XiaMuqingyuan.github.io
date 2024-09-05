@@ -396,13 +396,6 @@
   </url>
   
   <url>
-    <loc>http://xxs.us.kg/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2024-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://xxs.us.kg/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</loc>
     <lastmod>2024-09-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -425,6 +418,13 @@
   
   <url>
     <loc>http://xxs.us.kg/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/</loc>
+    <lastmod>2024-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xxs.us.kg/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2024-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
