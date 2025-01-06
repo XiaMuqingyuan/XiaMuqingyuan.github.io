@@ -3,7 +3,7 @@
   <head>
   
   <meta charset="UTF-8" />
-  <title>Windows11搜索框变大小 - 雨相的Blog</title>
+  <title>随便写写 - 雨相的Blog</title>
   <meta name="referrer" content="no-referrer" />
   <link rel="shortcut icon" href="/static/img/icon.png">
   <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
@@ -20,7 +20,7 @@
     content="width=device-width, maximum-scale=1, initial-scale=1"
   />
   <meta property="og:site_name" content="雨相的Blog" />
-  <meta property="og:title" content="Windows11搜索框变大小" />
+  <meta property="og:title" content="随便写写" />
   
   <style>
     body:before {
@@ -69,84 +69,41 @@
  <main>
   <div class="wrap min">
     <section class="post-title">
-      <h2>Windows11搜索框变大小</h2>
+      <h2>随便写写</h2>
       <div class="post-meta">
-        <time class="date">2024.06.17</time>
+        <time class="date">2025.01.06</time>
         
         <span class="category"
-          ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
+          ><a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></span
         >
         
       </div>
     </section>
     <article class="post-content">
-      
-      <blockquote>
-        这篇文章上次修改于 204 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
-      </blockquote>
-       <p>上周更新了新版本的 Win11，结果底部的搜索框真的丑到我了，要么整个删掉，要么就留着这根长条……</p>
-<p><img src="https://zglt.us.kg/file/077df116c51a5c0ea75db.png" alt="pic_353a17f8.png"></p>
-<p>思考片刻，在强大网友的帮助下，解决问题了</p>
-<p>分别为两种方法</p>
-<h1 id="ViveTool-方法"><a href="#ViveTool-方法" class="headerlink" title="ViveTool 方法"></a>ViveTool 方法</h1><h2 id="首先下载-ViveTool-并解压：ViVeTool-v0-3-2-zip-123-云盘"><a href="#首先下载-ViveTool-并解压：ViVeTool-v0-3-2-zip-123-云盘" class="headerlink" title="首先下载 ViveTool 并解压：ViVeTool-v0.3.2.zip - 123 云盘"></a>首先下载 ViveTool 并解压：<a target="_blank" rel="noopener" href="https://www.123pan.com/s/0cxJm-bWxFv.html">ViVeTool-v0.3.2.zip - 123 云盘</a></h2><p>以管理员身份运行 cmd，具体方式为：</p>
-<ul>
-<li><p>先 Win+R 打开运行</p>
-</li>
-<li><p>然后输入 cmd</p>
-</li>
-</ul>
-<p><img src="https://zglt.us.kg/file/bd9d3684bed529bd6d597.png" alt="pic_f8540171.png"></p>
-<ul>
-<li>然后快捷键 ctrl + shift + enter 就以管理员身份打开来了</li>
-</ul>
-<p><img src="https://zglt.us.kg/file/a417a4cd872e4b80149ef.png" alt="pic_adf3f975.png"></p>
-<p>然后通过 cd 指令进入到解压的 ViveTool 文件夹内，我解压在 D 盘，所以我的指令就是</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd D:\ViVeTool-v0<span class="number">.3</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
-
-<p>如果想将搜索框恢复为原来的放大镜图标，就输入指令</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vivetool /disable /id:<span class="number">39263329</span></span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vivetool /enable /id:<span class="number">39263329</span> /variant:<span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<p>重启后生效</p>
-<p><img src="https://zglt.us.kg/file/97129ffe3c89ec6445171.png" alt="pic_dd565858.png"></p>
-<p>还有其他的样式可以选择</p>
-<h2 id="样式-1：短按钮，带有放大镜和”搜索”字样"><a href="#样式-1：短按钮，带有放大镜和”搜索”字样" class="headerlink" title="样式 1：短按钮，带有放大镜和”搜索”字样"></a>样式 1：短按钮，带有放大镜和”搜索”字样</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vivetool /enable /id:<span class="number">39263329</span> /variant:<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://zglt.us.kg/file/4bc6c8e2d9c0536b49f6b.png" alt="pic_32b3babb.png"></p>
-<h2 id="样式-2：小图标，放大镜配地球仪"><a href="#样式-2：小图标，放大镜配地球仪" class="headerlink" title="样式 2：小图标，放大镜配地球仪"></a>样式 2：小图标，放大镜配地球仪</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vivetool /enable /id:<span class="number">39263329</span> /variant:<span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://zglt.us.kg/file/ee0ccd4f1b3f125c5fe19.png" alt="pic_0b3a3616.png"></p>
-<h2 id="样式-3：长按钮，带有放大镜和”搜索-Web”字样；"><a href="#样式-3：长按钮，带有放大镜和”搜索-Web”字样；" class="headerlink" title="样式 3：长按钮，带有放大镜和”搜索 Web”字样；"></a>样式 3：长按钮，带有放大镜和”搜索 Web”字样；</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vivetool /enable /id:<span class="number">39263329</span> /variant:<span class="number">5</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://zglt.us.kg/file/05c3c556c2280061d5f51.png" alt="pic_79856d02.png"></p>
-<h1 id="Powershell-方法"><a href="#Powershell-方法" class="headerlink" title="Powershell 方法"></a>Powershell 方法</h1><h2 id="如果用的是-powershell-的话，也是要以管理员身份运行，然后先-cd-到文件夹地址下，再输入代码"><a href="#如果用的是-powershell-的话，也是要以管理员身份运行，然后先-cd-到文件夹地址下，再输入代码" class="headerlink" title="如果用的是 powershell 的话，也是要以管理员身份运行，然后先 cd 到文件夹地址下，再输入代码"></a>如果用的是 powershell 的话，也是要以管理员身份运行，然后先 cd 到文件夹地址下，再输入代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\vivetool /disable /id:<span class="number">39263329</span></span><br></pre></td></tr></table></figure>
-
-<p>重启即可（好家伙，为了写篇文章，电脑重启五六次）</p>
-<p><img src="https://zglt.us.kg/file/d25aaa15126c8323ca61b.png" alt="pic_26353654.png"></p>
+       <p><img src="https://zglt.us.kg/file/AgACAgUAAyEGAASJY-P0AAMsZ3uSi_v0JGBtgl1yevYK3uWSCaEAAiXDMRu7kOBX5QABTlzTyspsAQADAgADeQADNgQ.jpg" alt="哈哈"></p>
+<p>原来大家都有或多或少的情感经历吗？我几乎没有拥有过类似的感觉，喜欢上一个人对我来说似乎很难，被喜欢也是。</p>
+<p>社交最广的时候是在学生时期，那时候和同学们都是你打我闹。偶尔有人四处散播谁谁喜欢谁，我总是好奇又八卦，跟着起哄。晚上躺床上也会想着，怎么没人喜欢我呢。后来慢慢明白，一个长的不好看，没什么优点，家境又不好的人，不被人注意才是正常的。</p>
+<p>后来，离开了学校，和同学们切断了联系，就几乎没有认识的同龄人了。参与工作后，认识了新的同事们，然后再离开再无联系反反复复。每天两点一线，没有能交心的朋友，跟异性更是不接触，遇到不开心的事情都是晚上躺着，自己听着歌慢慢消化，睡一觉就好了，明天就好了。</p>
+<p>仔细想来我没什么愿望，也没什么对生活的迫切期待，偶尔涌起来的孤独让我有种想依靠别人的感觉，但是把希望寄托在别人身上这件事情我总觉得不切实际。</p>
+<p>我很宅，以前能很久才出门溜达一次。一是没人陪着一起，二是出门吃喝玩乐是要花钱的，相比较下我选择在家躺着追剧打游戏。</p>
+<p>久而久之，我对外界没有向往了。朋友圈是谁去哪儿拍了好看的写真，谁去旅了游，爬了山，吃到好吃的食物，我是羡慕的，但是想想又要出远门，又要花很多钱，相比较下我选择了单纯羡慕一阵就不羡慕了。</p>
+<p>初恋什么的，情爱什么的，我没接触过，我的所有只有波澜不惊的生活。</p>
+<p>我逐渐发现，我应该更适合一个人。也许人总是在成长的过程中认清自己？</p>
 
     </article>
     <section class="post-near">
       <ul>
         
-        <li>
-          上一篇:
-          <a href="/2024/06/20/2024-06-20-Hexo%E6%B7%BB%E5%8A%A0Live2D%E7%9C%8B%E6%9D%BF%E5%A8%98/">Hexo添加Live2D看板娘</a>
-        </li>
+        <li>上一篇: 看完啦 (つд⊂)</li>
          
         <li>
           下一篇:
-          <a href="/2024/06/16/2024-06-16-%E8%A7%A3%E5%86%B3VUE%E6%89%93%E5%8C%85%E5%90%8E%E6%98%BE%E7%A4%BA%E4%B8%BA%E7%A9%BA%E7%99%BD%E9%A1%B5%E7%9A%84%E6%96%B9%E6%B3%95/">解决vue打包后显示为空白页的方法</a>
+          <a href="/2024/09/25/2024-09-25-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E6%9D%A5%E5%AE%9E%E4%B9%A0%E5%90%8E%E6%88%91%E5%BC%80%E5%A7%8B%E5%8F%98%E5%BE%97%E5%BF%99%E7%A2%8C%E8%80%8C%E5%8F%88%E7%A9%BA%E8%99%9A%EF%BC%9F/">为什么实习后我变得忙碌而又空虚？</a>
         </li>
         
       </ul>
     </section>
 
-    
-    <section class="post-tags">
-      <a class="-none-link" href="/tags/WIndows/" rel="tag">WIndows</a>
-    </section>
     
 
     <script
