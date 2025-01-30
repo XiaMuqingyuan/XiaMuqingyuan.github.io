@@ -34,7 +34,7 @@
     }
   </style>
   
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
     <header>
@@ -86,7 +86,7 @@
       </blockquote>
        <blockquote>
 <p>落霞与孤鹜齐飞，秋水共长天一色。</p>
-<p><a target="_blank" rel="noopener" href="https://xiamuqingyuan.github.io/about/">我的的博客</a></p>
+<p><a href="https://xiamuqingyuan.github.io/about/">我的的博客</a></p>
 </blockquote>
 <h1 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h1><pre><code>#!/bin/bash
 
@@ -99,9 +99,9 @@ source_string=$1
 echo &quot;源数据：$1&quot;
 # 判断是否为空
 if [ 0 -eq &quot;$&#123;#source_string&#125;&quot; ]; then
-    echo &quot;输入为空，退出&quot;
+	echo &quot;输入为空，退出&quot;
 
-    return
+	return
 fi
 
 echo &quot;正在执行...&quot;
@@ -120,40 +120,40 @@ result=&quot;&quot;
 
 # 将字符转化成ASCII码值
 for((i=0;i&lt;$&#123;#source_string&#125;;++i))&#123;
-    #curChar=&#39;printf &quot;%d&quot; &quot;$&#123;#source_string:i:1&#125;&quot;;&#39;
-    curChar=`printf &quot;%d&quot; &quot;&#39;$&#123;source_string:i:1&#125;&quot;;`
-    echo curChar=$curChar
+	#curChar=&#39;printf &quot;%d&quot; &quot;$&#123;#source_string:i:1&#125;&quot;;&#39;
+	curChar=`printf &quot;%d&quot; &quot;&#39;$&#123;source_string:i:1&#125;&quot;;`
+	echo curChar=$curChar
 
 case $encode_state in
 1)
 
-    index=$(( $curChar / $FIRST_SOURCE_BYTE_DIVIDEND ))
-    # echo &quot;INDEX IN STATE 1 IS : $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
-    echo &quot;结果：&quot; $result
-    encode_state=2;;
+	index=$(( $curChar / $FIRST_SOURCE_BYTE_DIVIDEND ))
+	# echo &quot;INDEX IN STATE 1 IS : $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	echo &quot;结果：&quot; $result
+	encode_state=2;;
 
 2)
 
-    index_high=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND)* 0X10 ))
-    index_low=$(( $curChar / $SECOND_SOURCE_BYTE_DIVIDEND ))
-    index=$(( $index_high + $index_low ))
-    # echo &quot;index in state 2 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
-    echo &quot;结果：$result&quot;
-    encode_state=3;;
+	index_high=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND)* 0X10 ))
+	index_low=$(( $curChar / $SECOND_SOURCE_BYTE_DIVIDEND ))
+	index=$(( $index_high + $index_low ))
+	# echo &quot;index in state 2 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	echo &quot;结果：$result&quot;
+	encode_state=3;;
 3)
-    index_high=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
-    index_low=$(( $curChar / $THIRD_SOURCE_BYTE_DIVIDEND ))
-    index=$(( $curChar % $THIRD_SOURCE_BYTE_DIVIDEND ))
-    # echo &quot;index2 in state 3 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
-    echo &quot;结果：$result&quot;
-    # 追加最后一位
+	index_high=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
+	index_low=$(( $curChar / $THIRD_SOURCE_BYTE_DIVIDEND ))
+	index=$(( $curChar % $THIRD_SOURCE_BYTE_DIVIDEND ))
+	# echo &quot;index2 in state 3 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	echo &quot;结果：$result&quot;
+	# 追加最后一位
             index=$(( $curChar % 0x10 ))
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
-    echo &quot;追加结果：$result&quot;
-    encode_state=1;;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	echo &quot;追加结果：$result&quot;
+	encode_state=1;;
 
 esac
 
@@ -163,15 +163,15 @@ last_source_byte=$curChar
 # process pading
 case $encode_state in
 2)
-    echo $FIRST_BYTE_DIVIDEND
+	echo $FIRST_BYTE_DIVIDEND
 
-    index=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND) * 0X10 ))
-    #echo &quot;index in pading state 2 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;==&quot;;;
+	index=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND) * 0X10 ))
+	#echo &quot;index in pading state 2 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;==&quot;;;
 3)
-    index=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
-    #echo &quot;index in pading state 3 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;=&quot;;;
+	index=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
+	#echo &quot;index in pading state 3 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;=&quot;;;
 esac
 echo &quot;添加后缀：$result&quot;
 str=$result
@@ -236,60 +236,60 @@ to=&quot;&quot;
 # size
 size=4
 if [[ $2 = 1 ]]; then
-    size = 3
+	size = 3
 elif [[ $2 = 2 ]]; then
-    size =2
+	size =2
 fi
 for((i=0;i&lt;size;++i))do
-    # echo &quot;循环I：$i $&#123;get:i:1&#125;&quot;
-    for((j=0;j&lt;64;j++))do
-        # echo &quot;当前：$j $&#123;BASE64_CODE_TABLE[$j]&#125;&quot;
-        if [[ $&#123;get:i:1&#125; = $&#123;BASE64_CODE_TABLE[$j]&#125; ]]; then
-            if [[ i &lt; size-1 ]];then
-                to=$(( ($to + $j)* 0x10))
+	# echo &quot;循环I：$i $&#123;get:i:1&#125;&quot;
+	for((j=0;j&lt;64;j++))do
+		# echo &quot;当前：$j $&#123;BASE64_CODE_TABLE[$j]&#125;&quot;
+		if [[ $&#123;get:i:1&#125; = $&#123;BASE64_CODE_TABLE[$j]&#125; ]]; then
+			if [[ i &lt; size-1 ]];then
+				to=$(( ($to + $j)* 0x10))
 
-                # 此时为十进制
-                echo &quot;匹配：$i $j $to $&#123;get:i:1&#125;&quot;
-            else
-                to=$(($to + $j))
-            fi
-            break
-        fi
-    done
+				# 此时为十进制
+				echo &quot;匹配：$i $j $to $&#123;get:i:1&#125;&quot;
+			else
+				to=$(($to + $j))
+			fi
+			break
+		fi
+	done
 done
 get=&quot;&quot;
 # 十进制转化为十六进制
 echo &quot;十六进制结果&quot; $to
 if [[ size = 1 ]]; then
-    to=$to/0x04
-    tmp=$to / 0x100
-    tmp=&quot;\x$&#123;tmp&#125;&quot;
-    tmp=`printf &quot;$tmp&quot;`
+	to=$to/0x04
+	tmp=$to / 0x100
+	tmp=&quot;\x$&#123;tmp&#125;&quot;
+	tmp=`printf &quot;$tmp&quot;`
 
-    to=$to &gt;&gt; 8
-    tmp=&quot;\x$&#123;to&#125;&quot;
-    tmp=`printf &quot;$tmp&quot;`
-    get=$get $tmp
+	to=$to &gt;&gt; 8
+	tmp=&quot;\x$&#123;to&#125;&quot;
+	tmp=`printf &quot;$tmp&quot;`
+	get=$get $tmp
 elif [[ size = 2 ]]; then
-    to=$to/0x10
-    tmp=&quot;\x$&#123;to&#125;&quot;
-    tmp=`printf &quot;$tmp&quot;`
-    get=$get $tmp
+	to=$to/0x10
+	tmp=&quot;\x$&#123;to&#125;&quot;
+	tmp=`printf &quot;$tmp&quot;`
+	get=$get $tmp
 else
-    printf &quot;%d&quot; $(( ($to / 65536) ))
-    tmp=$(( ($to / 65536) ))
-    fun $tmp
-    echo &quot;_str:&quot; $_str
-    to=$(( ($to % 65536) ))
-    tmp=$(( ($to / 256) ))
-    # tmp=&quot;\x$&#123;tmp&#125;&quot;
-    echo `printf &quot;$tmp&quot;`
-    tmp=`printf $tmp`
-    get=&quot;$get&quot; &quot;$tmp&quot;
-    to=$to &gt;&gt; 8
-    get=$get `echo -e &#39;\x$&#123;to % 0x100&#125;&#39;`
-    to=$to &gt;&gt; 8
-    get=$get `echo -e &#39;\x$&#123;to % 0x100&#125;&#39;`
+	printf &quot;%d&quot; $(( ($to / 65536) ))
+	tmp=$(( ($to / 65536) ))
+	fun $tmp
+	echo &quot;_str:&quot; $_str
+	to=$(( ($to % 65536) ))
+	tmp=$(( ($to / 256) ))
+	# tmp=&quot;\x$&#123;tmp&#125;&quot;
+	echo `printf &quot;$tmp&quot;`
+	tmp=`printf $tmp`
+	get=&quot;$get&quot; &quot;$tmp&quot;
+	to=$to &gt;&gt; 8
+	get=$get `echo -e &#39;\x$&#123;to % 0x100&#125;&#39;`
+	to=$to &gt;&gt; 8
+	get=$get `echo -e &#39;\x$&#123;to % 0x100&#125;&#39;`
 fi
 echo &quot;get-----------&gt;&quot;
 echo $get
@@ -307,7 +307,7 @@ last_to=0
 # 判断是否为空
 if [ 0 -eq &quot;$&#123;#source_string&#125;&quot; ]; then
 echo &quot;输入为空，退出&quot;
-    return
+	return
 fi
 
 # 结尾标记
@@ -315,27 +315,27 @@ end=0
 echo &quot;结尾： $&#123;source_string:$&#123;#source_string&#125;-3&#125;&quot;
 
 if [ $&#123;source_string:$&#123;#source_string&#125;-2&#125; = &quot;==&quot; ]; then
-        end=2
+    	end=2
 elif [ $&#123;source_string:$&#123;#source_string&#125;-1&#125; = &quot;=&quot; ]; then
-        end=1
+    	end=1
 else
-        end=0
+    	end=0
 fi
 
 # 判断字符串长度
 len=$&#123;#source_string&#125;
 if [[ 4 = len ]]; then
-    echo &quot;字符串长度小于4&quot;
+	echo &quot;字符串长度小于4&quot;
 
 else
-    echo &quot;字符串长度大于4&quot;
-    m=$&#123;#source_string&#125;-4
-    for((i=0;i&lt;m;))
-    do
-        get $&#123;source_string:i:4&#125; 0
-        result=$result $?
-        i = $i + 4
-    done
+	echo &quot;字符串长度大于4&quot;
+	m=$&#123;#source_string&#125;-4
+	for((i=0;i&lt;m;))
+	do
+		get $&#123;source_string:i:4&#125; 0
+		result=$result $?
+		i = $i + 4
+	done
 fi
 
 echo &quot;对结尾进行处理...&quot;
@@ -343,12 +343,12 @@ last=$&#123;source_string:$&#123;#source_string&#125;-4:4&#125;
 echo $last
 case $end in
 0)
-    ;;
+	;;
 1)
-    ;;
+	;;
 2)
-    get $last 2
-    result=$result $?;;
+	get $last 2
+	result=$result $?;;
 
 esac
 
@@ -367,33 +367,33 @@ result=&quot;&quot;
 
 # 将字符转化成ASCII码值
 for((i=0;i&lt;$&#123;#source_string&#125;;++i))&#123;
-    #curChar=&#39;printf &quot;%d&quot; &quot;$&#123;#source_string:i:1&#125;&quot;;&#39;
-    curChar=`printf &quot;%d&quot; &quot;&#39;$&#123;source_string:i:1&#125;&quot;;`
-    echo curChar=$curChar
+	#curChar=&#39;printf &quot;%d&quot; &quot;$&#123;#source_string:i:1&#125;&quot;;&#39;
+	curChar=`printf &quot;%d&quot; &quot;&#39;$&#123;source_string:i:1&#125;&quot;;`
+	echo curChar=$curChar
 
 case $encode_state in
 1)
 
-    index=$(( $curChar / $FIRST_SOURCE_BYTE_DIVIDEND ))
-    echo &quot;INDEX IN STATE 1 IS : $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
-    encode_state=2;;
+	index=$(( $curChar / $FIRST_SOURCE_BYTE_DIVIDEND ))
+	echo &quot;INDEX IN STATE 1 IS : $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	encode_state=2;;
 
 2)
 
-    index_high=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND)* 0X10 ))
-    index_low=$(( $curChar / $SECOND_SOURCE_BYTE_DIVIDEND ))
-    index=$(( $index_high + $index_low ))
-    echo &quot;index in state 2 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
-    encode_state=3;;
+	index_high=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND)* 0X10 ))
+	index_low=$(( $curChar / $SECOND_SOURCE_BYTE_DIVIDEND ))
+	index=$(( $index_high + $index_low ))
+	echo &quot;index in state 2 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	encode_state=3;;
 3)
-    index_high=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
-    index_low=$(( $curChar / $THIRD_SOURCE_BYTE_DIVIDEND ))
-    index=$(( $curChar % $THIRD_SOURCE_BYTE_DIVIDEND ))
-    echo &quot;index2 in state 3 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
-    encode_state=1;;
+	index_high=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
+	index_low=$(( $curChar / $THIRD_SOURCE_BYTE_DIVIDEND ))
+	index=$(( $curChar % $THIRD_SOURCE_BYTE_DIVIDEND ))
+	echo &quot;index2 in state 3 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	encode_state=1;;
 
 esac
 
@@ -403,15 +403,15 @@ last_source_byte=$curChar
 # process pading
 case $encode_state in
 2)
-    echo $FIRST_BYTE_DIVIDEND
+	echo $FIRST_BYTE_DIVIDEND
 
-    index=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND) * 0X10 ))
-    #echo &quot;index in pading state 2 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;==&quot;;;
+	index=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND) * 0X10 ))
+	#echo &quot;index in pading state 2 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;==&quot;;;
 3)
-    index=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
-    #echo &quot;index in pading state 3 is: $index&quot;
-    result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;=&quot;;;
+	index=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
+	#echo &quot;index in pading state 3 is: $index&quot;
+	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;=&quot;;;
 esac
 
 str=$result
@@ -496,7 +496,7 @@ echo &quot;解密结束...&quot;
       
       <div class="author-info">
         <h4>Frost</h4>
-        <p><font color='#FF2800'>恨</font><font color='#FF5000'>君</font><font color='#FF7800'>不</font><font color='#FFA000'>似</font><font color='#FFC800'>江</font><font color='#FFF000'>楼</font><font color='#D7FF00'>月</font><font color='#AFFF00'>，</font><font color='#87FF00'>南</font><font color='#5FFF00'>北</font><font color='#37FF00'>东</font><font color='#0FFF00'>西</font><font color='#00FF28'>，</font><font color='#00FF50'>南</font><font color='#00FF78'>北</font><font color='#00FFA0'>东</font><font color='#00FFC8'>西</font><font color='#00FFF0'>，</font><font color='#00D7FF'>只</font><font color='#00AFFF'>有</font><font color='#0087FF'>相</font><font color='#005FFF'>随</font><font color='#0037FF'>无</font><font color='#000FFF'>别</font><font color='#2800FF'>离</font><font color='#5000FF'>。</font><br>如本站内容对你有所帮助的话，不妨 <a href='https://xxs.us.kg/about'>捐助支持</a> 一下？</p>
+        <p><font color='#FF2800'>恨</font><font color='#FF5000'>君</font><font color='#FF7800'>不</font><font color='#FFA000'>似</font><font color='#FFC800'>江</font><font color='#FFF000'>楼</font><font color='#D7FF00'>月</font><font color='#AFFF00'>，</font><font color='#87FF00'>南</font><font color='#5FFF00'>北</font><font color='#37FF00'>东</font><font color='#0FFF00'>西</font><font color='#00FF28'>，</font><font color='#00FF50'>南</font><font color='#00FF78'>北</font><font color='#00FFA0'>东</font><font color='#00FFC8'>西</font><font color='#00FFF0'>，</font><font color='#00D7FF'>只</font><font color='#00AFFF'>有</font><font color='#0087FF'>相</font><font color='#005FFF'>随</font><font color='#0037FF'>无</font><font color='#000FFF'>别</font><font color='#2800FF'>离</font><font color='#5000FF'>。</font><br>如本站内容对你有所帮助的话，不妨 <a target="_blank" rel="noopener" href='https://xxs.us.kg/about'>捐助支持</a> 一下？</p>
       </div>
     </section>
     
@@ -511,7 +511,7 @@ echo &quot;解密结束...&quot;
       <div class="row">
         <div class="col-m-4">
           <h3 class="title-recent">最新文章：</h3>
-          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/01/29/2025-01-29-%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/01/24/2025-01-24-%E6%AF%95%E8%AE%BE%E8%BF%9B%E5%BA%A6/">毕设进度</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/01/06/2025-01-06-%E4%B9%B1%E5%86%99%E4%B8%80%E9%80%9A/">随便写写</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/25/2024-09-25-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%97%B6%E5%80%99%E6%88%91%E6%98%AFi%E4%BA%BA%EF%BC%8C%E6%9C%89%E6%97%B6%E5%80%99%E6%88%91%E6%98%AFe%E4%BA%BA%EF%BC%9F/">为什么有时候我是内向者，有时候我是外向者？</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/25/2024-09-25-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E6%9D%A5%E5%AE%9E%E4%B9%A0%E5%90%8E%E6%88%91%E5%BC%80%E5%A7%8B%E5%8F%98%E5%BE%97%E5%BF%99%E7%A2%8C%E8%80%8C%E5%8F%88%E7%A9%BA%E8%99%9A%EF%BC%9F/">为什么实习后我变得忙碌而又空虚？</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/01/2024-09-01-%E4%BA%91%E6%89%8B%E6%9C%BA%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/">移动云手机解决端口占用</a></li></ul>
+          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/01/29/2025-01-29-%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/01/24/2025-01-24-%E6%AF%95%E8%AE%BE%E8%BF%9B%E5%BA%A6/">毕设进度</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/01/06/2025-01-06-%E4%B9%B1%E5%86%99%E4%B8%80%E9%80%9A/">随便写写</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/25/2024-09-25-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E6%9D%A5%E5%AE%9E%E4%B9%A0%E5%90%8E%E6%88%91%E5%BC%80%E5%A7%8B%E5%8F%98%E5%BE%97%E5%BF%99%E7%A2%8C%E8%80%8C%E5%8F%88%E7%A9%BA%E8%99%9A%EF%BC%9F/">为什么实习后我变得忙碌而又空虚？</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/25/2024-09-25-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%97%B6%E5%80%99%E6%88%91%E6%98%AFi%E4%BA%BA%EF%BC%8C%E6%9C%89%E6%97%B6%E5%80%99%E6%88%91%E6%98%AFe%E4%BA%BA%EF%BC%9F/">为什么有时候我是内向者，有时候我是外向者？</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/09/01/2024-09-01-%E4%BA%91%E6%89%8B%E6%9C%BA%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/">移动云手机解决端口占用</a></li></ul>
         </div>
         <div class="col-m-4">
           <h3 class="title-date">时光机：</h3>
