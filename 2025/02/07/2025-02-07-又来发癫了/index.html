@@ -3,7 +3,7 @@
   <head>
   
   <meta charset="UTF-8" />
-  <title>CentOS搭建Alist - 雨相的Blog</title>
+  <title>又来发癫了 - 雨相的Blog</title>
   <meta name="referrer" content="no-referrer" />
   <link rel="shortcut icon" href="/static/img/icon.png">
   <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
@@ -20,7 +20,7 @@
     content="width=device-width, maximum-scale=1, initial-scale=1"
   />
   <meta property="og:site_name" content="雨相的Blog" />
-  <meta property="og:title" content="CentOS搭建Alist" />
+  <meta property="og:title" content="又来发癫了" />
   
   <style>
     body:before {
@@ -69,95 +69,36 @@
  <main>
   <div class="wrap min">
     <section class="post-title">
-      <h2>CentOS搭建Alist</h2>
+      <h2>又来发癫了</h2>
       <div class="post-meta">
-        <time class="date">2024.06.27</time>
+        <time class="date">2025.02.07</time>
         
         <span class="category"
-          ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
+          ><a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></span
         >
         
       </div>
     </section>
     <article class="post-content">
-      
-      <blockquote>
-        这篇文章上次修改于 226 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
-      </blockquote>
-       <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上次我发了一个移动云手机搭建 Alist 的教程，这次同学白嫖了一台阿里云服务器，所以让我来帮他搭建 Alist</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
-<li>阿里云服务器</li>
-<li>CentOS 7.9V</li>
-<li>Alist 最新版本</li>
-</ul>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>其实 Alist 文档官方给我们提供了 Linux 一键安装命令</p>
-<blockquote>
-<p>安装</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://alist.nn.ci/v3.sh&quot; | bash -s install</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>更新</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://alist.nn.ci/v3.sh&quot; | bash -s update</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>卸载</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL &quot;https://alist.nn.ci/v3.sh&quot; | bash -s uninstall</span><br></pre></td></tr></table></figure>
-
-<h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><p>安装完成 Alist 会在后台自动启动，此时你可以</p>
-<pre><code>随机生成一个密码
-./alist admin random
-
-手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码
-./alist admin set NEW_PASSWORD
-</code></pre>
-<p>注意现在启动还不能访问，需要配置一下端口开放</p>
-<pre><code>启动: systemctl start alist
-关闭: systemctl stop alist
-状态: systemctl status alist
-重启: systemctl restart alist
-</code></pre>
-<h1 id="配置端口"><a href="#配置端口" class="headerlink" title="配置端口"></a>配置端口</h1><p>进入安全组手动添加 Alist 的默认端口 5244</p>
-<p><img src="https://zglt.us.kg/file/4bb4229809847c40d487e.png" alt="tu1"></p>
-<p><img src="https://zglt.us.kg/file/ec1e692b27180d96b990f.png" alt="tu2"></p>
-<p>添加完端口重启一下 Alist 服务</p>
-<h1 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h1><p>访问地址: http:&#x2F;&#x2F;你的服务器公网 IP:5244<br>公网 ip 可以在阿里云服务器控制台查看</p>
-<h1 id="高级配置"><a href="#高级配置" class="headerlink" title="高级配置"></a>高级配置</h1><h2 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h2><p>如果你不想一直使用 ip 加端口的话还可以去配置里面修改端口号为 80</p>
-<pre><code>cd /root/alist/data
-vim config.json
-</code></pre>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scheme&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;http_port&quot;</span><span class="punctuation">:</span> <span class="number">80</span><span class="punctuation">,</span><span class="comment">//修改为80</span></span><br><span class="line">    <span class="attr">&quot;https_port&quot;</span><span class="punctuation">:</span> <span class="number">-1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;force_https&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cert_file&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;key_file&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;unix_file&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;unix_file_perm&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>修改为 80 端口后直接访问 http:&#x2F;&#x2F;你的服务器公网 IP 即可进入 alist 页面</p>
-<h2 id="如果条件更好的话还可以直接绑定域名"><a href="#如果条件更好的话还可以直接绑定域名" class="headerlink" title="如果条件更好的话还可以直接绑定域名"></a>如果条件更好的话还可以直接绑定域名</h2><p>这样子就不用记住那 ipv4 的公网 ip 了</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>还是很简单的，就是做的时候注意细节。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://alist.nn.ci/">Alist 官方文档</a></li>
-</ul>
+       <p>没有谈过恋爱，自然也没有初恋。</p>
+<p>身边的朋友和同学们或多或少都有过恋爱经历，而我呢，并不是不想谈恋爱 😅。主要是因为我太内向、胆小，平时也不主动接近异性。在游戏中和现实生活中，我总是一个人，似乎已经习惯了这种状态。说实话，我也不知道该如何改变这种情况。我能自己完成的事情绝对不会要求别人帮忙，除非实在没办法。然而，寻求帮助时，得到回应的往往是男生，因为我真正意义上的女性朋友似乎没有一个，大多数都是不再联系的同学。</p>
+<p>有时候我真的觉得自己很没用。读书这么久，成绩也不好，连恋爱都谈不了，感觉自己好像被整个世界抛弃了一样。现在快要毕业了，回想起在学校学的东西，感觉没有一个能派上用场。果然，热爱不能当饭吃。我学了个不太实用的计算机专业，结果什么都会一点，却没有一样精通。这种感觉真的让人无奈。</p>
+<p>直到我开始实习，经历了种种挑战，才意识到自己的面子其实一文不值。被领导羞辱，被同事攻击，这些经历让我明白了很多。</p>
 
     </article>
     <section class="post-near">
       <ul>
         
-        <li>
-          上一篇:
-          <a href="/2024/07/25/2024-07-15-%E6%88%90%E8%AF%AD%E8%A7%A3%E9%87%8A-%E9%BE%99%E9%98%B3%E4%B9%8B%E5%A5%BD/">成语解释_龙阳之好</a>
-        </li>
+        <li>上一篇: 看完啦 (つд⊂)</li>
          
         <li>
           下一篇:
-          <a href="/2024/06/23/2024-06-23-vue%E8%BD%AE%E6%92%AD%E5%9B%BE/">Vue轮播图</a>
+          <a href="/2025/01/29/2025-01-29-%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/">新年快乐</a>
         </li>
         
       </ul>
     </section>
 
-    
-    <section class="post-tags">
-      <a class="-none-link" href="/tags/Linux/" rel="tag">Linux</a><a class="-none-link" href="/tags/alist/" rel="tag">alist</a><a class="-none-link" href="/tags/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE/" rel="tag">外网访问</a><a class="-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" rel="tag">数据存储</a>
-    </section>
     
 
     <script
