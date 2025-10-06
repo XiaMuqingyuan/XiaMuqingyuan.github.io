@@ -12,9 +12,7 @@
 
 var Paul_Hingle = function (config) {
   var body = document.body;
-  var content = ks.select(
-    ".post-content:not(.is-special), .page-content:not(.is-special)"
-  );
+  var content = ks.select(".post-content:not(.is-special), .page-content:not(.is-special)");
 
   // 菜单按钮
   this.header = function () {
@@ -47,62 +45,64 @@ var Paul_Hingle = function (config) {
 
   // 目录树
   this.tree = function () {
-    var id = 1;
-    var wrap = ks.select(".wrap");
-    var headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    const wrap = ks.select(".wrap");
+    const headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
 
-    if (headings.length > 0) {
-      body.classList.add("has-trees");
-
-      var trees = ks.create("section", {
-        class: "article-list",
-        html: '<h4><span class="title">目录</span></h4>',
-      });
-
-      ks.each(headings, function (t) {
-        var cls,
-          text = t.innerText;
-
-        t.id = "title-" + id;
-
-        switch (t.tagName) {
-          case "H2":
-            cls = "item-2";
-            break;
-          case "H3":
-            cls = "item-3";
-            break;
-          case "H4":
-            cls = "item-4";
-            break;
-          case "H5":
-            cls = "item-5";
-            break;
-          case "H6":
-            cls = "item-6";
-            break;
-        }
-
-        trees.appendChild(
-          ks.create("a", { class: cls, text: text, href: "#title-" + id })
-        );
-
-        id++;
-      });
-
-      wrap.appendChild(trees);
-
-      function toggle_tree() {
-        var buttons = ks.select("footer .buttons");
-        var btn = ks.create("a", { class: "toggle-list" });
-        buttons.appendChild(btn);
-
-        btn.addEventListener("click", function () {
-          trees.classList.toggle("active");
-        });
-      }
-      toggle_tree();
+    if (headings.length === 0) {
+      return;
     }
+
+    body.classList.add("has-trees");
+
+    // 计算数量，得出最高层级
+    const levelCount = { h1: 0, h2: 0, h3: 0, h4: 0, h5: 0, h6: 0 };
+
+    headings.forEach((el) => {
+      const tagName = el.tagName.toLowerCase();
+      levelCount[tagName]++;
+    });
+
+    let firstLevel = 1;
+    if (levelCount.h1 === 0 && levelCount.h2 > 0) {
+      firstLevel = 2;
+    }
+    else if (levelCount.h1 === 0 && levelCount.h2 === 0 && levelCount.h3 > 0) {
+      firstLevel = 3;
+    }
+
+    // 目录树节点
+    const trees = ks.create("section", {
+      class: "article-list",
+      html: `<h4><span class="title">目录</span></h4>`
+    });
+
+    ks.each(headings, (t, index) => {
+      const text = t.innerText;
+
+      t.id = "title-" + index;
+
+      const level = Number(t.tagName.substring(1)) - firstLevel + 1;
+      const className = `item-${level}`;
+
+      trees.appendChild(ks.create("a", { class: className, text, href: `#title-${index}` }));
+    });
+
+
+    wrap.appendChild(trees);
+
+    // 绑定元素
+    const buttons = ks.select("footer .buttons");
+    const btn = ks.create("button", {
+      class: "toggle-list",
+      attr: [
+        { name: "title", value: "切换文章目录" },
+      ],
+    });
+    buttons.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+      trees.classList.toggle("active");
+    });
   };
 
   // 自动添加外链
@@ -207,7 +207,7 @@ ks.image(
 // 请保留版权说明
 if (window.console && window.console.log) {
   console.log(
-    "%c Frost %c https://xxs.us.kg ",
+    "%c Frost %c https://blog.525553.xyz ",
     "color: #fff; margin: 1em 0; padding: 5px 0; background: #6f9fc7;",
     "margin: 1em 0; padding: 5px 0; background: #efefef;"
   );
