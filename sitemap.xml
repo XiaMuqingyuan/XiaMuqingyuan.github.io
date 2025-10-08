@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiamuqingyuan.github.io/2025/10/08/2025-10-08-%E8%BF%9B%E5%8E%82%E6%8C%91%E6%88%98%E4%BA%86/</loc>
+    
+    <lastmod>2025-10-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiamuqingyuan.github.io/xiangmu/index.html</loc>
     
     <lastmod>2025-10-07</lastmod>
@@ -452,28 +461,7 @@
 
   
   <url>
-    <loc>https://xiamuqingyuan.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiamuqingyuan.github.io/tags/C%E8%AF%AD%E8%A8%80/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiamuqingyuan.github.io/tags/%E5%AE%89%E5%8D%93/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiamuqingyuan.github.io/tags/%E6%A0%BC%E6%9C%BA/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -488,6 +476,34 @@
   
   <url>
     <loc>https://xiamuqingyuan.github.io/tags/Linux/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiamuqingyuan.github.io/tags/%E6%A0%BC%E6%9C%BA/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiamuqingyuan.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiamuqingyuan.github.io/tags/C%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiamuqingyuan.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -509,13 +525,6 @@
   
   <url>
     <loc>https://xiamuqingyuan.github.io/tags/CSS/</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiamuqingyuan.github.io/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -601,7 +610,7 @@
 
   
   <url>
-    <loc>https://xiamuqingyuan.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://xiamuqingyuan.github.io/categories/shell/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -615,7 +624,7 @@
   </url>
   
   <url>
-    <loc>https://xiamuqingyuan.github.io/categories/shell/</loc>
+    <loc>https://xiamuqingyuan.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
