@@ -2,9 +2,9 @@ let titleTime, OriginTitile = document.title;
 document.addEventListener("visibilitychange",
     (function () {
         document.hidden ?
-            (document.title = "梧桐叶上三更雨,叶叶声声是别离",
+            (document.title = "不在看看吗？",
                 clearTimeout(titleTime)) :
-            (document.title = "无可奈何花落去,似曾相识燕归来",
+            (document.title = "欢迎回来！",
                 titleTime = setTimeout(
                     (function () {
                         document.title = OriginTitile
