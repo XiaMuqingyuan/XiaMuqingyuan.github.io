@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xiamuqingyuan.github.io/2025/10/27/2025-10-27-%E5%A5%BD%E9%9A%BE%E7%86%AC%E9%98%BF/</loc>
+    <loc>https://xiamuqingyuan.github.io/2025/10/21/2025-10-21-%E5%A5%BD%E9%9A%BE%E7%86%AC%E9%98%BF/</loc>
+    
+    <lastmod>2025-10-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiamuqingyuan.github.io/2025/10/27/2025-10-27-%E9%83%A8%E7%BD%B2%20Cloudflare%20Snippet/</loc>
     
     <lastmod>2025-10-26</lastmod>
     
@@ -586,7 +595,7 @@
   </url>
   
   <url>
-    <loc>https://xiamuqingyuan.github.io/tags/WIndows/</loc>
+    <loc>https://xiamuqingyuan.github.io/tags/vue/</loc>
     <lastmod>2025-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -594,13 +603,6 @@
   
   <url>
     <loc>https://xiamuqingyuan.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiamuqingyuan.github.io/tags/vue/</loc>
     <lastmod>2025-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -615,6 +617,13 @@
   
   <url>
     <loc>https://xiamuqingyuan.github.io/tags/%E7%9C%8B%E6%9D%BF%E5%A8%98/</loc>
+    <lastmod>2025-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiamuqingyuan.github.io/tags/WIndows/</loc>
     <lastmod>2025-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
