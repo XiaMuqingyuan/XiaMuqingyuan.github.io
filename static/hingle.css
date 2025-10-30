@@ -1272,3 +1272,79 @@ pre[class*="language-"].line-numbers {
   padding-right: 0.8em;
   text-align: right;
 }
+/* 代码块样式增强 */
+pre {
+  position: relative;
+  overflow: hidden;
+  max-height: 300px; /* 折叠时最大高度 */
+  transition: max-height 0.3s ease;
+}
+
+/* 展开状态 */
+pre.expanded {
+  max-height: none;
+}
+
+/* 一键复制按钮 */
+/* 复制按钮样式优化 */
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 0.4em;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.copy-btn:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.copy-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 代码块样式优化 */
+pre code {
+  display: block;
+  counter-reset: line;
+  font-family: "Fira Code", "Consolas", "Courier New", monospace;
+  line-height: 1.6;
+  font-size: 0.9em;
+  border-radius: 0.5em;
+  padding: 1em;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow-x: auto;
+}
+
+/* 隐藏行号区域（如使用 highlight.js） */
+.highlight td.gutter {
+  display: none !important;
+}
+
+/* 展开/折叠提示 */
+.toggle-code {
+  display: block;
+  text-align: center;
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 0.85em;
+  margin-top: -6px;
+  margin-bottom: 8px;
+  opacity: 0.85;
+  transition: color 0.2s, opacity 0.2s;
+}
+.toggle-code:hover {
+  color: var(--blue-hover, #0066cc);
+  opacity: 1;
+}
