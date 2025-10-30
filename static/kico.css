@@ -37,6 +37,7 @@ figure {
   padding: 0;
 }
 
+/* 文章里面的下划线
 span {
   background: linear-gradient(to right, #0000ff85, #ff000085) no-repeat right
     bottom;
@@ -46,7 +47,7 @@ span {
 span:hover {
   background-size: 100% 2px;
   background-position-x: left;
-}
+} */
 
 *,
 *:before,

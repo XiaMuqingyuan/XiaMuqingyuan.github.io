@@ -37,24 +37,24 @@
     s.forEach(function (i, x) {
       for (
         i.x += i.xa,
-          i.y += i.ya,
-          i.xa *= i.x > a || i.x < 0 ? -1 : 1,
-          i.ya *= i.y > c || i.y < 0 ? -1 : 1,
-          r.fillRect(i.x - 0.5, i.y - 0.5, 1, 1),
-          e = x + 1;
+        i.y += i.ya,
+        i.xa *= i.x > a || i.x < 0 ? -1 : 1,
+        i.ya *= i.y > c || i.y < 0 ? -1 : 1,
+        r.fillRect(i.x - 0.5, i.y - 0.5, 1, 1),
+        e = x + 1;
         e < u.length;
         e++
       )
         (n = u[e]),
           null !== n.x &&
-            null !== n.y &&
-            ((o = i.x - n.x),
+          null !== n.y &&
+          ((o = i.x - n.x),
             (m = i.y - n.y),
             (l = o * o + m * m),
             l < n.max &&
-              (n === y &&
-                l >= n.max / 2 &&
-                ((i.x -= 0.03 * o), (i.y -= 0.03 * m)),
+            (n === y &&
+              l >= n.max / 2 &&
+              ((i.x -= 0.03 * o), (i.y -= 0.03 * m)),
               (t = (n.max - l) / n.max),
               r.beginPath(),
               (r.lineWidth = t / 2),
