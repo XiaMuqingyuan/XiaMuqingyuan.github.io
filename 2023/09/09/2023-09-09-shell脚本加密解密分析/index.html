@@ -40,7 +40,7 @@
     }
   </style>
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
   <body>
     <header>
@@ -93,7 +93,7 @@
     <article class="post-content">
       
       <blockquote>
-        这篇文章上次修改于 817 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
+        这篇文章上次修改于 839 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
       </blockquote>
        <blockquote>
 <p>落霞与孤鹜齐飞，秋水共长天一色。</p>
@@ -104,12 +104,12 @@
 # 全局变量
 str=&quot;&quot;
 
-base64_encode_string()&#123;
+base64_encode_string(){
 # 源数据
 source_string=$1
 echo &quot;源数据：$1&quot;
 # 判断是否为空
-if [ 0 -eq &quot;$&#123;#source_string&#125;&quot; ]; then
+if [ 0 -eq &quot;${#source_string}&quot; ]; then
 	echo &quot;输入为空，退出&quot;
 
 	return
@@ -130,9 +130,9 @@ last_source_byte=&quot;&quot;
 result=&quot;&quot;
 
 # 将字符转化成ASCII码值
-for((i=0;i&lt;$&#123;#source_string&#125;;++i))&#123;
-	#curChar=&#39;printf &quot;%d&quot; &quot;$&#123;#source_string:i:1&#125;&quot;;&#39;
-	curChar=`printf &quot;%d&quot; &quot;&#39;$&#123;source_string:i:1&#125;&quot;;`
+for((i=0;i&lt;${#source_string};++i)){
+	#curChar=&#39;printf &quot;%d&quot; &quot;${#source_string:i:1}&quot;;&#39;
+	curChar=`printf &quot;%d&quot; &quot;&#39;${source_string:i:1}&quot;;`
 	echo curChar=$curChar
 
 case $encode_state in
@@ -140,7 +140,7 @@ case $encode_state in
 
 	index=$(( $curChar / $FIRST_SOURCE_BYTE_DIVIDEND ))
 	# echo &quot;INDEX IN STATE 1 IS : $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}&quot;
 	echo &quot;结果：&quot; $result
 	encode_state=2;;
 
@@ -150,7 +150,7 @@ case $encode_state in
 	index_low=$(( $curChar / $SECOND_SOURCE_BYTE_DIVIDEND ))
 	index=$(( $index_high + $index_low ))
 	# echo &quot;index in state 2 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}&quot;
 	echo &quot;结果：$result&quot;
 	encode_state=3;;
 3)
@@ -158,18 +158,18 @@ case $encode_state in
 	index_low=$(( $curChar / $THIRD_SOURCE_BYTE_DIVIDEND ))
 	index=$(( $curChar % $THIRD_SOURCE_BYTE_DIVIDEND ))
 	# echo &quot;index2 in state 3 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}&quot;
 	echo &quot;结果：$result&quot;
 	# 追加最后一位
             index=$(( $curChar % 0x10 ))
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}&quot;
 	echo &quot;追加结果：$result&quot;
 	encode_state=1;;
 
 esac
 
 last_source_byte=$curChar
-&#125;
+}
 
 # process pading
 case $encode_state in
@@ -178,16 +178,16 @@ case $encode_state in
 
 	index=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND) * 0X10 ))
 	#echo &quot;index in pading state 2 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;==&quot;;;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}==&quot;;;
 3)
 	index=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
 	#echo &quot;index in pading state 3 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;=&quot;;;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}=&quot;;;
 esac
 echo &quot;添加后缀：$result&quot;
 str=$result
 
-&#125;
+}
 
 
     # 第二种
@@ -218,7 +218,7 @@ done
 # 写入文件
 # base64_encode_string $1
 
-echo &quot;加密结束...&quot;&#125;
+echo &quot;加密结束...&quot;}
 </code></pre>
 <h1 id="解密算法"><a href="#解密算法" class="headerlink" title="解密算法"></a>解密算法</h1><pre><code>#!/bin/bash
 
@@ -229,16 +229,16 @@ _str=&quot;&quot;
 BASE64_CODE_TABLE=(W n r m 0 b 7 Q P p I 1 F G B Y V i z Z X N 8 4 v T J q o c O u D 9 a H d g S l t 2 j R y A K E e 6 k C x h s f w L 5 M 3 U + /)
 
 #16#----&gt;ascii
-fun()&#123;
+fun(){
 a=$1
 b=`printf &quot;%d&quot; $a`
-#echo $b |awk &#39;&#123;printf(&quot;%c&quot;, $1)&#125;&#39;
-_str=`echo $b |awk &#39;&#123;printf(&quot;%c&quot;, $1)&#125;&#39;`
-&#125;
+#echo $b |awk &#39;{printf(&quot;%c&quot;, $1)}&#39;
+_str=`echo $b |awk &#39;{printf(&quot;%c&quot;, $1)}&#39;`
+}
 
 
 # 四个字符转化为正确的三个字符
-get()&#123;
+get(){
 # get
 get=$1
 echo &quot;数据源&quot; $1
@@ -252,15 +252,15 @@ elif [[ $2 = 2 ]]; then
 	size =2
 fi
 for((i=0;i&lt;size;++i))do
-	# echo &quot;循环I：$i $&#123;get:i:1&#125;&quot;
+	# echo &quot;循环I：$i ${get:i:1}&quot;
 	for((j=0;j&lt;64;j++))do
-		# echo &quot;当前：$j $&#123;BASE64_CODE_TABLE[$j]&#125;&quot;
-		if [[ $&#123;get:i:1&#125; = $&#123;BASE64_CODE_TABLE[$j]&#125; ]]; then
+		# echo &quot;当前：$j ${BASE64_CODE_TABLE[$j]}&quot;
+		if [[ ${get:i:1} = ${BASE64_CODE_TABLE[$j]} ]]; then
 			if [[ i &lt; size-1 ]];then
 				to=$(( ($to + $j)* 0x10))
 
 				# 此时为十进制
-				echo &quot;匹配：$i $j $to $&#123;get:i:1&#125;&quot;
+				echo &quot;匹配：$i $j $to ${get:i:1}&quot;
 			else
 				to=$(($to + $j))
 			fi
@@ -274,16 +274,16 @@ echo &quot;十六进制结果&quot; $to
 if [[ size = 1 ]]; then
 	to=$to/0x04
 	tmp=$to / 0x100
-	tmp=&quot;\x$&#123;tmp&#125;&quot;
+	tmp=&quot;\x${tmp}&quot;
 	tmp=`printf &quot;$tmp&quot;`
 
 	to=$to &gt;&gt; 8
-	tmp=&quot;\x$&#123;to&#125;&quot;
+	tmp=&quot;\x${to}&quot;
 	tmp=`printf &quot;$tmp&quot;`
 	get=$get $tmp
 elif [[ size = 2 ]]; then
 	to=$to/0x10
-	tmp=&quot;\x$&#123;to&#125;&quot;
+	tmp=&quot;\x${to}&quot;
 	tmp=`printf &quot;$tmp&quot;`
 	get=$get $tmp
 else
@@ -293,20 +293,20 @@ else
 	echo &quot;_str:&quot; $_str
 	to=$(( ($to % 65536) ))
 	tmp=$(( ($to / 256) ))
-	# tmp=&quot;\x$&#123;tmp&#125;&quot;
+	# tmp=&quot;\x${tmp}&quot;
 	echo `printf &quot;$tmp&quot;`
 	tmp=`printf $tmp`
 	get=&quot;$get&quot; &quot;$tmp&quot;
 	to=$to &gt;&gt; 8
-	get=$get `echo -e &#39;\x$&#123;to % 0x100&#125;&#39;`
+	get=$get `echo -e &#39;\x${to % 0x100}&#39;`
 	to=$to &gt;&gt; 8
-	get=$get `echo -e &#39;\x$&#123;to % 0x100&#125;&#39;`
+	get=$get `echo -e &#39;\x${to % 0x100}&#39;`
 fi
 echo &quot;get-----------&gt;&quot;
 echo $get
-&#125;
+}
 
-base64_encode_string()&#123;
+base64_encode_string(){
 # 源数据
 source_string=$1
 last=0
@@ -316,41 +316,41 @@ last_to=0
  result=&quot;&quot;
 
 # 判断是否为空
-if [ 0 -eq &quot;$&#123;#source_string&#125;&quot; ]; then
+if [ 0 -eq &quot;${#source_string}&quot; ]; then
 echo &quot;输入为空，退出&quot;
 	return
 fi
 
 # 结尾标记
 end=0
-echo &quot;结尾： $&#123;source_string:$&#123;#source_string&#125;-3&#125;&quot;
+echo &quot;结尾： ${source_string:${#source_string}-3}&quot;
 
-if [ $&#123;source_string:$&#123;#source_string&#125;-2&#125; = &quot;==&quot; ]; then
+if [ ${source_string:${#source_string}-2} = &quot;==&quot; ]; then
     	end=2
-elif [ $&#123;source_string:$&#123;#source_string&#125;-1&#125; = &quot;=&quot; ]; then
+elif [ ${source_string:${#source_string}-1} = &quot;=&quot; ]; then
     	end=1
 else
     	end=0
 fi
 
 # 判断字符串长度
-len=$&#123;#source_string&#125;
+len=${#source_string}
 if [[ 4 = len ]]; then
 	echo &quot;字符串长度小于4&quot;
 
 else
 	echo &quot;字符串长度大于4&quot;
-	m=$&#123;#source_string&#125;-4
+	m=${#source_string}-4
 	for((i=0;i&lt;m;))
 	do
-		get $&#123;source_string:i:4&#125; 0
+		get ${source_string:i:4} 0
 		result=$result $?
 		i = $i + 4
 	done
 fi
 
 echo &quot;对结尾进行处理...&quot;
-last=$&#123;source_string:$&#123;#source_string&#125;-4:4&#125;
+last=${source_string:${#source_string}-4:4}
 echo $last
 case $end in
 0)
@@ -377,9 +377,9 @@ last_source_byte=&quot;&quot;
 result=&quot;&quot;
 
 # 将字符转化成ASCII码值
-for((i=0;i&lt;$&#123;#source_string&#125;;++i))&#123;
-	#curChar=&#39;printf &quot;%d&quot; &quot;$&#123;#source_string:i:1&#125;&quot;;&#39;
-	curChar=`printf &quot;%d&quot; &quot;&#39;$&#123;source_string:i:1&#125;&quot;;`
+for((i=0;i&lt;${#source_string};++i)){
+	#curChar=&#39;printf &quot;%d&quot; &quot;${#source_string:i:1}&quot;;&#39;
+	curChar=`printf &quot;%d&quot; &quot;&#39;${source_string:i:1}&quot;;`
 	echo curChar=$curChar
 
 case $encode_state in
@@ -387,7 +387,7 @@ case $encode_state in
 
 	index=$(( $curChar / $FIRST_SOURCE_BYTE_DIVIDEND ))
 	echo &quot;INDEX IN STATE 1 IS : $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}&quot;
 	encode_state=2;;
 
 2)
@@ -396,20 +396,20 @@ case $encode_state in
 	index_low=$(( $curChar / $SECOND_SOURCE_BYTE_DIVIDEND ))
 	index=$(( $index_high + $index_low ))
 	echo &quot;index in state 2 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}&quot;
 	encode_state=3;;
 3)
 	index_high=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
 	index_low=$(( $curChar / $THIRD_SOURCE_BYTE_DIVIDEND ))
 	index=$(( $curChar % $THIRD_SOURCE_BYTE_DIVIDEND ))
 	echo &quot;index2 in state 3 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;&quot;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}&quot;
 	encode_state=1;;
 
 esac
 
 last_source_byte=$curChar
-&#125;
+}
 
 # process pading
 case $encode_state in
@@ -418,16 +418,16 @@ case $encode_state in
 
 	index=$(( ($last_source_byte % $FIRST_SOURCE_BYTE_DIVIDEND) * 0X10 ))
 	#echo &quot;index in pading state 2 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;==&quot;;;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}==&quot;;;
 3)
 	index=$(( ($last_source_byte % $SECOND_SOURCE_BYTE_DIVIDEND) * 0X04 ))
 	#echo &quot;index in pading state 3 is: $index&quot;
-	result=&quot;$result$&#123;BASE64_CODE_TABLE[$index]&#125;=&quot;;;
+	result=&quot;$result${BASE64_CODE_TABLE[$index]}=&quot;;;
 esac
 
 str=$result
 
-&#125;
+}
 
 #main函数 $1输入文件 $2输出文件
 
@@ -455,7 +455,7 @@ echo &quot;$str&quot; &gt;&gt; $2
 done
 
 echo &quot;解密结束...&quot;
-&#125;
+}
 </code></pre>
 
     </article>
@@ -522,7 +522,7 @@ echo &quot;解密结束...&quot;
       <div class="row">
         <div class="col-m-4">
           <h3 class="title-recent">最新文章：</h3>
-          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/12/02/2025-12-02-%E7%BB%A7%E7%BB%AD%E4%B8%8A%E7%99%BD%E7%8F%AD/">继续上白班</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/11/15/2025-11-15-%E5%8F%91%E5%B7%A5%E8%B5%84%E4%BA%86/">发工资了</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/11/06/2025-11-06-%E8%BD%AC%E7%99%BD%E7%8F%AD%E4%BA%86/">转白班了</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/10/27/2025-10-27-%E9%83%A8%E7%BD%B2%20Cloudflare%20Snippet/">部署 Cloudflare Snippet</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/10/21/2025-10-21-%E5%A5%BD%E9%9A%BE%E7%86%AC%E9%98%BF/">好难熬阿</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/10/18/2025-10-18-%E4%B8%8A%E4%BA%86%E5%9B%9B%E5%A4%A9%E5%A4%9C%E7%8F%AD/">挑战完四天夜班</a></li></ul>
+          <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/12/19/2025-12-19-%E8%B7%91%E8%B7%AF%E4%BA%86%E5%85%84%E5%BC%9F%E4%BB%AC/">跑路了，兄弟们</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/12/02/2025-12-02-%E7%BB%A7%E7%BB%AD%E4%B8%8A%E7%99%BD%E7%8F%AD/">继续上白班</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/11/15/2025-11-15-%E5%8F%91%E5%B7%A5%E8%B5%84%E4%BA%86/">发工资了</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/11/06/2025-11-06-%E8%BD%AC%E7%99%BD%E7%8F%AD%E4%BA%86/">转白班了</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/10/27/2025-10-27-%E9%83%A8%E7%BD%B2%20Cloudflare%20Snippet/">部署 Cloudflare Snippet</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/10/21/2025-10-21-%E5%A5%BD%E9%9A%BE%E7%86%AC%E9%98%BF/">好难熬阿</a></li></ul>
         </div>
         <div class="col-m-4">
           <h3 class="title-date">时光机：</h3>
