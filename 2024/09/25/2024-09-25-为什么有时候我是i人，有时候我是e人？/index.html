@@ -43,6 +43,14 @@
 <meta name="generator" content="Hexo 8.1.1"></head>
 
   <body>
+    <script>
+      var sessiondarklight = sessionStorage.getItem("dark or light");
+      if (sessiondarklight == "dark") {
+        document.body.classList.add("dark-theme");
+      } else if (!sessiondarklight) {
+        sessionStorage.setItem("dark or light", "pre");
+      }
+    </script>
     <header>
   <meta
     name="google-site-verification"
@@ -93,7 +101,7 @@
     <article class="post-content">
       
       <blockquote>
-        这篇文章上次修改于 478 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
+        这篇文章上次修改于 480 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
       </blockquote>
        <blockquote>
 <p>2024-09-25</p>

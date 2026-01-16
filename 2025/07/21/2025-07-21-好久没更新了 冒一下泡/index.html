@@ -43,6 +43,14 @@
 <meta name="generator" content="Hexo 8.1.1"></head>
 
   <body>
+    <script>
+      var sessiondarklight = sessionStorage.getItem("dark or light");
+      if (sessiondarklight == "dark") {
+        document.body.classList.add("dark-theme");
+      } else if (!sessiondarklight) {
+        sessionStorage.setItem("dark or light", "pre");
+      }
+    </script>
     <header>
   <meta
     name="google-site-verification"
@@ -91,6 +99,10 @@
       </div>
     </section>
     <article class="post-content">
+      
+      <blockquote>
+        这篇文章上次修改于 181 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
+      </blockquote>
        <p><span>也是毕业了，专升本考上了一个院校，但是今年的学费涨了 5k。所以不打算去了，刚拿完毕业证的时候还去了广州玩一下，本来是想找工作的，不过没找到<br>就回来桂林了。打算过两天回家了，估计九月多才下广打螺丝。祝我好运吧<br></span></p>
 
     </article>

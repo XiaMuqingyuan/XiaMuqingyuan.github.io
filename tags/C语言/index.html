@@ -43,6 +43,14 @@
 <meta name="generator" content="Hexo 8.1.1"></head>
 
   <body>
+    <script>
+      var sessiondarklight = sessionStorage.getItem("dark or light");
+      if (sessiondarklight == "dark") {
+        document.body.classList.add("dark-theme");
+      } else if (!sessiondarklight) {
+        sessionStorage.setItem("dark or light", "pre");
+      }
+    </script>
     <header>
   <meta
     name="google-site-verification"
