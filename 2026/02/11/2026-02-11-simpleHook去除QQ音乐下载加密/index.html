@@ -3,7 +3,7 @@
   <head>
   
   <meta charset="UTF-8" />
-  <title>C语言数据结构_查找并删除单链表中最大值结点并返回值 - 雨相的Blog</title>
+  <title>SimpleHook去除QQ音乐下载加密 - 雨相的Blog</title>
   <meta name="referrer" content="no-referrer" />
   <link rel="shortcut icon" href="/static/img/icon.png">
   <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
@@ -20,7 +20,7 @@
     content="width=device-width, maximum-scale=1, initial-scale=1"
   />
   <meta property="og:site_name" content="雨相的Blog" />
-  <meta property="og:title" content="C语言数据结构_查找并删除单链表中最大值结点并返回值" />
+  <meta property="og:title" content="SimpleHook去除QQ音乐下载加密" />
 
   <meta name="baidu-site-verification" content="codeva-sLwS2WQ8sQ" />
   <meta
@@ -88,145 +88,36 @@
  <main>
   <div class="wrap min">
     <section class="post-title">
-      <h2>C语言数据结构_查找并删除单链表中最大值结点并返回值</h2>
+      <h2>SimpleHook去除QQ音乐下载加密</h2>
       <div class="post-meta">
-        <time class="date">2023.11.22</time>
+        <time class="date">2026.02.11</time>
         
         <span class="category"
-          ><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span
+          ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
         >
         
       </div>
     </section>
     <article class="post-content">
-      
-      <blockquote>
-        这篇文章上次修改于 813 天前，可能其部分内容已经发生变化，如有疑问可询问作者。
-      </blockquote>
-       <h2 id="这个则是一个-C-语言的期中作业"><a href="#这个则是一个-C-语言的期中作业" class="headerlink" title="这个则是一个 C 语言的期中作业"></a>这个则是一个 C 语言的期中作业</h2><p>由于是作业，也是按照要求顺便写了出来，大佬们勿喷！</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+       <p>嗯 今天闲来无事，出一期教程，教大家如何去除QQ音乐会员歌曲下载加密。<br>使它可以使用第三方播放器播放，而且会员到期也可以听。</p>
+<p>首先我们下载好SimpleHook，安装好后去Lsposed激活SimpleHook，并勾选QQ音乐。</p>
+<p>simplehook项目地址：<a target="_blank" rel="noopener" href="https://github.com/littleWhiteDuck/SimpleHook/releases">https://github.com/littleWhiteDuck/SimpleHook/releases</a></p>
+<p>QQ音乐：<a target="_blank" rel="noopener" href="https://www.123684.com/s/0cxJm-GUDFv">https://www.123684.com/s/0cxJm-GUDFv</a></p>
+<p>然后导入下面的Hook代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;packageName&quot;</span>: <span class="string">&quot;com.meizu.media.music&quot;</span>,</span><br><span class="line">    <span class="string">&quot;appName&quot;</span>: <span class="string">&quot;QQ 音乐&quot;</span>,</span><br><span class="line">    <span class="string">&quot;versionName&quot;</span>: <span class="string">&quot;11.0.10&quot;</span>,</span><br><span class="line">    <span class="string">&quot;description&quot;</span>: <span class="string">&quot;from keyword&#x27;[processDownloadFile] needEncrypt = &#x27;and calling&#x27;native_decrypt(I[BI)I&#x27;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;configs&quot;</span>: <span class="string">&quot;[&#123;\&quot;className\&quot;:\&quot;com.tencent.qqmusic.core.song.SongInfo\&quot;,\&quot;methodName\&quot;:\&quot;needEncrypt\&quot;,\&quot;resultValues\&quot;:\&quot;false\&quot;&#125;,&#123;\&quot;mode\&quot;:2,\&quot;className\&quot;:\&quot;com.tencent.qqmusic.business.musicdownload.vipdownload.PayProcessor\&quot;,\&quot;methodName\&quot;:\&quot;encrypt\&quot;,\&quot;params\&quot;:\&quot;I,[B,I\&quot;&#125;,&#123;\&quot;className\&quot;:\&quot;com.tencent.qqmusic.business.musicdownload.vipdownload.PayProcessor\&quot;,\&quot;methodName\&quot;:\&quot;encrypt\&quot;,\&quot;params\&quot;:\&quot;I,[B,I\&quot;,\&quot;resultValues\&quot;:\&quot;0\&quot;&#125;]&quot;</span>,</span><br><span class="line">    <span class="string">&quot;id&quot;</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-typedef struct Node // 定义一个结构体
-{
-    float data;
-    struct Node *next;
-} Node;
-
-Node *Chuangzao_LinkedList() // 创建一个链表
-{
-    Node *head = NULL; // 定义头指针
-    Node *tail = NULL; // 定义尾指针
-    /*并初始为null*/
-    float Yuan_Su; // 定义元素
-    printf(&quot;请输入多个整数（用空格分开，并以-1结束):\n&quot;);
-    while (1)
-    {
-        scanf(&quot;%f&quot;, &amp;Yuan_Su); // 循环输入元素
-
-        if (Yuan_Su == -1)
-        {
-            break; // 输入-1，退出循环
-        }
-
-        Node *newNode = (Node *)malloc(sizeof(Node)); // 创建新结点，用malloc分配内存
-        newNode-&gt;data = Yuan_Su;
-        newNode-&gt;next = NULL;
-
-        if (head == NULL) // 如果为头为空
-        {
-            head = newNode; // 指向新结点
-            tail = newNode;
-        }
-        else
-        {
-            tail-&gt;next = newNode; // 插入链表尾部
-            tail = newNode;       // 更新指针
-        }
-    }
-
-    return head;
-}
-
-float Shanchu_MaxNode(Node **head) // 定义删除链表最大值的函数
-{
-    if (*head == NULL)
-    {
-        printf(&quot;链表为空！&quot;);
-        return -1;
-    }
-
-    Node *Dang_qian = *head; // 当前结点为头
-    Node *maxNode = NULL;    // 最大结点和当前结点前一个为空
-    Node *Qian_yige = NULL;
-    float maxValue = Dang_qian-&gt;data;
-
-    while (Dang_qian != NULL &amp;&amp; Dang_qian-&gt;next != NULL)
-    {
-        if (Dang_qian-&gt;next-&gt;data &gt; maxValue)
-        {
-            maxValue = Dang_qian-&gt;next-&gt;data;
-            maxNode = Dang_qian;
-            Qian_yige = maxNode;
-        }
-        else
-        {
-            Dang_qian = Dang_qian-&gt;next;
-        }
-    }
-
-    if (maxNode == NULL)
-    {
-        maxNode = *head;
-        *head = (*head)-&gt;next;
-    }
-    else
-    {
-        maxNode = maxNode-&gt;next;
-        Qian_yige-&gt;next = maxNode-&gt;next;
-    }
-
-    float maxData = maxNode-&gt;data;
-    free(maxNode);
-    return maxData;
-}
-
-void printLinkedList(Node *head)
-{
-    if (head == NULL)
-    {
-        return;
-    }
-    printLinkedList(head-&gt;next);
-    printf(&quot; %.2f-&gt;&quot;, head-&gt;data);
-}
-
-int main()
-{
-    Node *head = Chuangzao_LinkedList();
-    float maxData = Shanchu_MaxNode(&amp;head);
-    printf(&quot;删除的最大值为：%.2f\n&quot;, maxData);
-    printf(&quot;删除链表最大的值后，链表的值如下：\n&quot;);
-    printLinkedList(head);
-    printf(&quot;\n&quot;);
-    system(&quot;pause&quot;); // vscode中加入可以使cmd可以保留在屏幕上，删除则会一闪而过
-    return 0;
-}
-</code></pre>
-<h2 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h2><p><img src="https://mark.cuckooing.cn/pics/pic_0a297575.png" alt="pic_0a297575.png"></p>
+<p>保持并打开，结束QQ音乐进程，重新打开QQ音乐，下载会员歌曲就不会加密了。</p>
+<p><img src="https://img.525553.xyz/file/bNMg0rLn.jpeg" alt="78DB3910-E56F-4435-A271-6C986765B377.jpeg"></p>
 
     </article>
     <section class="post-near">
       <ul>
         
-        <li>
-          上一篇:
-          <a href="/2023/11/23/2023-11-23-%E6%80%9D%E7%A7%91%E6%A8%A1%E6%8B%9F%E5%99%A8%20%E9%85%8D%E7%BD%AE%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%9C%BA/">思科模拟器 配置简单的交换机</a>
-        </li>
+        <li>上一篇: 看完啦 (つд⊂)</li>
          
         <li>
           下一篇:
-          <a href="/2023/11/22/2023-11-22-%E5%88%B6%E4%BD%9C%E5%90%8D%E6%9B%B2%E6%AC%A3%E8%B5%8F%E9%A1%B5%E9%9D%A2/">制作名曲欣赏页面</a>
+          <a href="/2026/02/04/2026-02-04-Q&amp;A/">Q&amp;A</a>
         </li>
         
       </ul>
@@ -234,7 +125,7 @@ int main()
 
     
     <section class="post-tags">
-      <a class="-none-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a><a class="-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a>
+      <a class="-none-link" href="/tags/Xposed/" rel="tag">Xposed</a><a class="-none-link" href="/tags/%E5%AE%89%E5%8D%93/" rel="tag">安卓</a>
     </section>
     
 
