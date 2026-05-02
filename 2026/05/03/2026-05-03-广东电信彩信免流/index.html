@@ -3,7 +3,7 @@
   <head>
   
   <meta charset="UTF-8" />
-  <title>2023 年 11 月 - 雨相的Blog</title>
+  <title>广东电信彩信免流 - 雨相的Blog</title>
   <meta name="referrer" content="no-referrer" />
   <link rel="shortcut icon" href="/static/img/icon.png">
   <link rel="icon" href="/static/img/icon.png" sizes="192x192" />
@@ -20,7 +20,7 @@
     content="width=device-width, maximum-scale=1, initial-scale=1"
   />
   <meta property="og:site_name" content="雨相的Blog" />
-  <meta property="og:title" content="" />
+  <meta property="og:title" content="广东电信彩信免流" />
 
   <meta name="baidu-site-verification" content="codeva-sLwS2WQ8sQ" />
   <meta
@@ -87,103 +87,84 @@
 </header>
  <main>
   <div class="wrap min">
-    <section class="home-title">
-      
-      <h1>“2023 年 11 月”</h1>
+    <section class="post-title">
+      <h2>广东电信彩信免流</h2>
+      <div class="post-meta">
+        <time class="date">2026.05.03</time>
+        
+        <span class="category"
+          ><a class="category-link" href="/categories/%E6%9D%82%E8%B0%88/">杂谈</a></span
+        >
+        
+      </div>
     </section>
-    <section class="home-posts">
-  
-  <div class="post-item">
-    <h2>
-      <a href="/2023/11/23/2023-11-23-%E6%80%9D%E7%A7%91%E6%A8%A1%E6%8B%9F%E5%99%A8%20%E9%85%8D%E7%BD%AE%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%A4%E6%8D%A2%E6%9C%BA/"
-        >思科模拟器 配置简单的交换机</a
-      >
-    </h2>
-    
-    <p>1.打开思科模拟器 放俩 pc
+    <article class="post-content">
+       <p>最近有人问我，广东电信那个“彩信免流”现在到底还能不能玩，索性简单写一篇，给后面看到的人做个记录。</p>
+<p>先说结论：<strong>网上流传的所谓“彩信免流”，大多都是很多年前留下来的旧思路</strong>。它本质上依赖的是运营商早期在彩信通道、特定接入点或者白名单计费上的历史漏洞。放在以前，也许确实有人能偶尔跑通；但放到现在，这种方法基本都属于“看运气、看地区、看时效”的东西，稳定长期可用的情况已经很少了。</p>
+<p>而且这种玩法，说白了也不是什么正规的省流方式。就算偶尔有人说自己“还能用”，也不代表别人照着折腾就一定有效，更不代表没有风险。</p>
+<p>我个人是不太建议碰这类东西的，原因也很现实：</p>
+<ol>
+<li><strong>违反运营商使用规则</strong>，出了问题很难说；</li>
+<li><strong>容易被补扣流量费</strong>，前面以为没扣，后面账单一起算；</li>
+<li><strong>号码可能被风控</strong>，轻则限速，重则暂停部分功能；</li>
+<li><strong>隐私风险也不小</strong>，很多人为了“免流”去套来路不明的配置、代理或者证书，最后把自己的流量和账号都交了出去。</li>
+</ol>
+<p>从原理上讲，所谓“免流”并不是“真的没有流量产生”，而是把原本正常的数据请求，尽量伪装进某些历史上单独处理、白名单放行，或者识别不够严格的通道里。一旦运营商把规则补上，或者把识别策略收紧，这种方法基本立马就会失效。</p>
+<p>所以这类东西一直有一个很大的问题：<strong>它从来都不是稳定、长期、可持续的方案</strong>。今天有人说能跑，明天可能就寄；这个地区能用，换个基站、换个时间段、换个套餐就直接失效。你花时间折腾半天，最后不一定省到多少，反而可能把正常上网搞出一堆毛病。</p>
+<p>嗯所以说是看运气的。首先我们需要一个模块或者代理app。我就用surfing了，然后倒入<a target="_blank" rel="noopener" href="https://wangka.cxksl.eu.org/wangka3">订阅</a>。</p>
+<p>再去网络哪里吧apn改为彩信的。这样就大功告成了。然后就可以正常上网了。这个时候我们就可以看到流量是0了。也就是说我们上网没有流量了。</p>
+<p>我测试后还是有些小跳流量的，不过都没啥大碍。</p>
 
-2.接着放一个交换机并用线路连接它们
-
-3.配置交换机 vlan
-
-最后配置两台 pc 的 ip 地址
-
-
-最后去 pc0 ping 一下
-
-发现 pc0 可以...</p>
-    
-    <div class="post-meta">
-      <time class="date">2023.11.23</time>
-      
-      <span class="category"
-        ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
-      >
-       
-      <span class="tags"
-        ><a class="-none-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag">网络安全</a></span
-      >
-      
-    </div>
-  </div>
-  
-  <div class="post-item">
-    <h2>
-      <a href="/2023/11/22/2023-11-22-C%E8%AF%AD%E8%A8%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E5%8D%95%E9%93%BE%E8%A1%A8%E4%B8%AD%E6%9C%80%E5%A4%A7%E5%80%BC%E7%BB%93%E7%82%B9%E5%B9%B6%E8%BF%94%E5%9B%9E%E5%80%BC/"
-        >C语言数据结构_查找并删除单链表中最大值结点并返回值</a
-      >
-    </h2>
-    
-    <p>这个则是一个 C 语言的期中作业由于是作业，也是按照要求顺便写了出来，大佬们勿喷！
-代码实现#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;stdlib.h&amp;gt;
-...</p>
-    
-    <div class="post-meta">
-      <time class="date">2023.11.22</time>
-      
-      <span class="category"
-        ><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></span
-      >
-       
-      <span class="tags"
-        ><a class="-none-link" href="/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a>，<a class="-none-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a></span
-      >
-      
-    </div>
-  </div>
-  
-  <div class="post-item">
-    <h2>
-      <a href="/2023/11/22/2023-11-22-%E5%88%B6%E4%BD%9C%E5%90%8D%E6%9B%B2%E6%AC%A3%E8%B5%8F%E9%A1%B5%E9%9D%A2/"
-        >制作名曲欣赏页面</a
-      >
-    </h2>
-    
-    <p>一个课本里面的简单 HTML 页面由于是作业，而且加上有点无聊就顺手写了一个垃圾页面出来，大佬们勿喷！
-代码实现&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;...</p>
-    
-    <div class="post-meta">
-      <time class="date">2023.11.22</time>
-      
-      <span class="category"
-        ><a class="category-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span
-      >
-       
-      <span class="tags"
-        ><a class="-none-link" href="/tags/CSS/" rel="tag">CSS</a>，<a class="-none-link" href="/tags/HTML/" rel="tag">HTML</a></span
-      >
-      
-    </div>
-  </div>
-  
-</section>
-
-    <section class="page-navigator">
-      <span class="page-number current">1</span>
+    </article>
+    <section class="post-near">
+      <ul>
+        
+        <li>上一篇: 看完啦 (つд⊂)</li>
+         
+        <li>
+          下一篇:
+          <a href="/2026/05/02/2026-05-02-%E6%8C%82%E5%A3%81%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%8D%8A%E4%B8%AA%E6%9C%88%E4%BA%86/">挂壁差不多半个月了</a>
+        </li>
+        
+      </ul>
     </section>
+
+    
+    <section class="post-tags">
+      <a class="-none-link" href="/tags/%E5%85%8D%E6%B5%81/" rel="tag">免流</a><a class="-none-link" href="/tags/%E7%94%B5%E4%BF%A1/" rel="tag">电信</a><a class="-none-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
+    </section>
+    
+
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="XiaMuqingyuan/XiaMuqingyuan.github.io"
+      data-repo-id="R_kgDOMI6vyA"
+      data-category="General"
+      data-category-id="DIC_kwDOMI6vyM4CgJja"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async
+    ></script>
+
+    
+    <section class="post-author">
+      
+      <figure class="author-avatar">
+        <img src="https://files.cnblogs.com/files/blogs/808760/touxiang.gif?t=1700582933&download=true" alt="Frost" />
+      </figure>
+      
+      <div class="author-info">
+        <h4>Frost</h4>
+        <p><font color='#FF2800'>恨</font><font color='#FF5000'>君</font><font color='#FF7800'>不</font><font color='#FFA000'>似</font><font color='#FFC800'>江</font><font color='#FFF000'>楼</font><font color='#D7FF00'>月</font><font color='#AFFF00'>，</font><font color='#87FF00'>南</font><font color='#5FFF00'>北</font><font color='#37FF00'>东</font><font color='#0FFF00'>西</font><font color='#00FF28'>，</font><font color='#00FF50'>南</font><font color='#00FF78'>北</font><font color='#00FFA0'>东</font><font color='#00FFC8'>西</font><font color='#00FFF0'>，</font><font color='#00D7FF'>只</font><font color='#00AFFF'>有</font><font color='#0087FF'>相</font><font color='#005FFF'>随</font><font color='#0037FF'>无</font><font color='#000FFF'>别</font><font color='#2800FF'>离</font><font color='#5000FF'>。</font><br>如本站内容对你有所帮助的话，不妨 <a target="_blank" rel="noopener" href='https://blog.525553.xyz/about'>捐助支持</a> 一下？</p>
+      </div>
+    </section>
+    
   </div>
 </main>
  <footer>
